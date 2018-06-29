@@ -48,3 +48,20 @@ body{
 	padding-left:55px;
 	float:left;
 }
+ .code
+    {
+         font-family:Arial;
+         font-style:italic;
+         color:#7900ff;
+         font-size:20px;
+         border:0;
+         font-weight:bolder;       
+         text-align:center;               
+         cursor:pointer;
+         width:100px;
+         height:30px;
+         float:right;
+         line-height:initialpx;
+         vertical-align:middle;
+         background-color:#a9666e;
+     }

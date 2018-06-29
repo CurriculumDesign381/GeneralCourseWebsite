@@ -20,9 +20,10 @@ public class DBUtil {
 
 	public static Connection getConnection() throws Exception {
 		String driverName = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/generalcoursewebsite?useUnicode=true&amp;characterEncoding=UTF-8";
+		String url =  "jdbc:mysql://localhost:3306/generalcoursewebsite?serverTimezone=GMT";
+
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "password";
 
 		Class.forName(driverName);
 
