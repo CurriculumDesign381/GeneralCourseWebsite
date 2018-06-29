@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
 			
 				if(state == true)
 				{
-					request.getServletContext().getRequestDispatcher("/jsp/operator.jsp").forward(request, response);
+					request.getServletContext().getRequestDispatcher("/admin/login.jsp").forward(request, response);
 					
 				}
 			/*	else if(state==0){
