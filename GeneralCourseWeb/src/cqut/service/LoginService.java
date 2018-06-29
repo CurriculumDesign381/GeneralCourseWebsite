@@ -7,12 +7,12 @@ import java.util.Map;
 
 import cqut.dao.LoginDao;
 
-public class loginService {
-	private static loginService Service;
+public class LoginService {
+	private static LoginService Service;
 
-	public static loginService getLoginService() {
+	public static LoginService getLoginService() {
 		if (Service == null) {
-			Service = new loginService();
+			Service = new LoginService();
 		}
 
 		return Service;
