@@ -1,0 +1,50 @@
+@charset "UTF-8";
+body{
+	background-color: #ffffff;
+	font-family: Adobe 黑体 Std;
+}
+.content{
+	width:1366px;
+	height:578px;
+	background-image:url("../Images/loginImage.png"); 
+	background-size:cover;
+	background-repeat:no-repeat;
+	margin:100px; 
+	position:relative;
+}
+
+.login{
+    margin-top: 140px;
+    margin-left: 400px;
+	width:567px;
+	height:295px;
+	position: absolute;
+}
+.head{
+	padding-top: 15px;
+	padding-left:20px;
+	font-size:11px;
+	font-weight:bold;/*字体加粗*/
+	float:left;
+}
+.headtitle{
+	padding-top:11px;
+	font-size:32px;
+	color: #0000ff;
+	line-height:32px;
+	background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgb(55, 7, 243)), to(rgb(13, 0, 0)));/*实现渐变色*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-reflect: below 8px linear-gradient(#e8efe300,#ffffff2e);
+}
+.loginBox{/*登录框*/
+	padding-left:118px;
+	padding-top:1px;
+	float:left;
+	font-size: 12px;
+}
+.loginButton{
+	padding-top:11px;
+	padding-left:55px;
+	float:left;
+}

@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		   //得到 登录帐号
 			
-					String admin = request.getParameter("admin");
+					String admin = request.getParameter("user");
 					//得到登录密码
 					String passWord = request.getParameter("password");
 					
