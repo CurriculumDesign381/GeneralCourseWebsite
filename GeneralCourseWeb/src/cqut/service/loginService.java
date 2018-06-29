@@ -3,10 +3,21 @@ package cqut.service;
 import java.util.List;
 import java.util.Map;
 
+
+
 import cqut.dao.LoginDao;
 
 public class loginService {
-public boolean login(String userID,String passWord) {
+	private static loginService Service;
+
+	public static loginService getLoginService() {
+		if (Service == null) {
+			Service = new loginService();
+		}
+
+		return Service;
+	}
+public static boolean login(String userID,String passWord) {
 	List<Map<String, Object>> list = LoginDao.getLoginDao().login(userID);
 	boolean status = false;
 	if (!"".equals(userID) || !"".equals(passWord)) {

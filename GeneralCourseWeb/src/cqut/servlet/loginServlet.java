@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cqut.service.LoginService;
+import cqut.service.loginService;
+
+
 
 /**
  * Servlet implementation class loginServlet
@@ -33,26 +35,25 @@ public class loginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		   //得到 登录帐号
-			int userID ;
+			
 					String admin = request.getParameter("admin");
 					//得到登录密码
 					String passWord = request.getParameter("password");
 					
-					LoginService loginService = new LoginService();
-				int state = 	loginService.login(admin, passWord);
-				userID  =loginService.getInforUserID(admin);
+					
+				boolean state = 	loginService.login(admin, passWord);
+				
 				HttpSession session = request.getSession();
-				session.setAttribute("userID", userID);
-				System.out.println(userID);
-				if(state == 1)
+			
+				if(state == true)
 				{
 					request.getServletContext().getRequestDispatcher("/jsp/operator.jsp").forward(request, response);
 					
 				}
-				else if(state==0){
+			/*	else if(state==0){
 					request.getServletContext().getRequestDispatcher("/jsp/main.jsp").forward(request, response);
 					
-				}
+				}*/
 				else {
 				/*	response.setCharacterEncoding("GBK"); */
 					response.setCharacterEncoding("UTF-8");
