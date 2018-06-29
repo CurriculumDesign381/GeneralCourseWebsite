@@ -20,7 +20,7 @@ public class DBUtil {
 
 	public static Connection getConnection() throws Exception {
 		String driverName = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/qnss?useUnicode=true&amp;characterEncoding=UTF-8";
+		String url = "jdbc:mysql://localhost:3306/generalcoursewebsite?useUnicode=true&amp;characterEncoding=UTF-8";
 		String userName = "root";
 		String userPWD = "";
 
@@ -55,7 +55,7 @@ public class DBUtil {
 			int operationTypeID = rs.getInt("operationTypeID");
 			String passWord = rs.getString("passWord");
 
-			map1.put("UserName", userName);
+			map1.put("userName", userName);
 			map1.put("userID", userID);
 			map1.put("operationTypeID", operationTypeID);
 			map1.put("PassWord", passWord);
