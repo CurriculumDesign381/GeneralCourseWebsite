@@ -22,10 +22,10 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
  */
 @WebServlet("/CreateSercurityCode")
 public class CreateSercurityCode extends HttpServlet {
-	public static final char[] chars={'2','3','4','5','6','7','8','9','A','B','C','D'};//×Ô¶¨ÒåÑéÖ¤Âë³Ø
-	public static Random random = new Random();//Ëæ»úÊý
+	public static final char[] chars={'2','3','4','5','6','7','8','9','A','B','C','D'};//ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½
+	public static Random random = new Random();//ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	/*»ñÈ¡4Î»Ëæ»úÊý*/
+	/*ï¿½ï¿½È¡4Î»ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	public static String getRandomString() {
 		StringBuffer buffer = new StringBuffer();
 		for (int i = 0; i < 4; i++) {
@@ -34,11 +34,11 @@ public class CreateSercurityCode extends HttpServlet {
 		return buffer.toString();
 	}
 	
-	/*»ñÈ¡Ëæ»úµÄÑÕÉ«*/
+	/*ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«*/
 	 public static Color getRandomColor(){
 	        return new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255));
 	}
-	/*·µ»ØÄ³ÑÕÉ«µÄ·´É«*/
+	/*ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½É«ï¿½Ä·ï¿½É«*/
 	 public static Color getReverseColor(Color c){
 	        return new Color(255 - c.getRed(), 255 - c.getGreen(), 255 - c.getBlue());
 	 }
@@ -53,31 +53,31 @@ public class CreateSercurityCode extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("image/jpeg"); //ÉèÖÃÊä³öÀàÐÍ
+        response.setContentType("image/jpeg"); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         
-        String randomString = getRandomString(); //Ëæ»ú×Ö·û´®
-        request.getSession(true).setAttribute("randomString", randomString);//·Åµ½sessionÀï
+        String randomString = getRandomString(); //ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+        request.getSession(true).setAttribute("randomString", randomString);//ï¿½Åµï¿½sessionï¿½ï¿½
         
-        int width=100; //Í¼Æ¬¿í¶È
-        int height=30; //Í¼Æ¬¸ß¶È
+        int width=100; //Í¼Æ¬ï¿½ï¿½ï¿½
+        int height=30; //Í¼Æ¬ï¿½ß¶ï¿½
         
-        Color color=getRandomColor(); //Ëæ»úÑÕÉ«£¬ÓÃÓÚ±³¾°É«
-        Color reverse=getReverseColor(color);//·´É«£¬ÓÃÓÚÇ°¾°É«
-        //´´½¨Ò»¸ö²ÊÉ«Í¼Æ¬
+        Color color=getRandomColor(); //ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½É«
+        Color reverse=getReverseColor(color);//ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½É«
+        //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½É«Í¼Æ¬
         BufferedImage bi=new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-        Graphics2D g=bi.createGraphics(); //»æÍ¼¶ÔÏó
-        g.setFont(new Font(Font.SANS_SERIF,Font.BOLD,16));//ÉèÖÃ×ÖÌå
-        g.setColor(color);//ÉèÖÃÑÕÉ«
-        g.fillRect(0, 0, width, height);//»æÖÆ±³¾°
+        Graphics2D g=bi.createGraphics(); //ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
+        g.setFont(new Font(Font.SANS_SERIF,Font.BOLD,16));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        g.setColor(color);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+        g.fillRect(0, 0, width, height);//ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½
         g.setColor(reverse);
-        g.drawString(randomString, 18, 20);//»æÖÆËæ»ú×Ö·û
-        for(int i=0,n=random.nextInt(100);i<n;i++){ //»­×î¶à100¸öÔëÒôµã
+        g.drawString(randomString, 18, 20);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
+        for(int i=0,n=random.nextInt(100);i<n;i++){ //ï¿½ï¿½ï¿½ï¿½ï¿½100ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             g.drawRect(random.nextInt(width), random.nextInt(height), 1, 1);
         }
-        ServletOutputStream out= response.getOutputStream();//×ª³ÉJPEG¸ñÊ½
-        JPEGImageEncoder encoder=JPEGCodec.createJPEGEncoder(out);//±àÂëÆ÷
-        encoder.encode(bi); //¶ÔÍ¼Æ¬½øÐÐ±àÂë
-        out.flush();//Êä³öµ½¿Í»§¶Ë
+        ServletOutputStream out= response.getOutputStream();//×ªï¿½ï¿½JPEGï¿½ï¿½Ê½
+        JPEGImageEncoder encoder=JPEGCodec.createJPEGEncoder(out);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        encoder.encode(bi); //ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
+        out.flush();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class CreateSercurityCode extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		this.doGet(request, response);
+		doGet(request, response);
 	}
 
 }
