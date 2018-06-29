@@ -10,21 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cqut.service.loginService;
+import cqut.service.LoginService;
 
 
 
 /**
  * Servlet implementation class loginServlet
  */
-@WebServlet("/loginServlet")
-public class loginServlet extends HttpServlet {
+@WebServlet("/LoginServlet")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,13 +41,13 @@ public class loginServlet extends HttpServlet {
 					String passWord = request.getParameter("password");
 					
 					
-				boolean state = 	loginService.login(admin, passWord);
+				boolean state = 	LoginService.login(admin, passWord);
 				
 				HttpSession session = request.getSession();
 			
 				if(state == true)
 				{
-					request.getServletContext().getRequestDispatcher("/jsp/operator.jsp").forward(request, response);
+					request.getServletContext().getRequestDispatcher("/admin/login.jsp").forward(request, response);
 					
 				}
 			/*	else if(state==0){
