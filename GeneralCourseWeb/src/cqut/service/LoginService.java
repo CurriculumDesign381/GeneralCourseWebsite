@@ -20,6 +20,9 @@ public class LoginService {
 public static boolean login(String userID,String passWord) {
 	List<Map<String, Object>> list = LoginDao.getLoginDao().login(userID);
 	boolean status = false;
+	if (list!=null && !list.isEmpty()) {
+		
+
 	if (!"".equals(userID) || !"".equals(passWord)) {
 		System.out.println("userID:" + userID);
 		System.out.println("passWord:" + passWord);
@@ -30,6 +33,7 @@ public static boolean login(String userID,String passWord) {
 
 		}
    
+	}
 	}
 	   return status;
 }

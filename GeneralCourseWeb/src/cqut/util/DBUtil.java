@@ -23,7 +23,7 @@ public class DBUtil {
 		String url =  "jdbc:mysql://localhost:3306/generalcoursewebsite?serverTimezone=GMT";
 
 		String userName = "root";
-		String userPWD = "password";
+		String userPWD = "";
 
 		Class.forName(driverName);
 
