@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+	background-color: #ffffff;
+	font-family: Adobe 黑体 Std;
+}
+.content{
+	width:1376px;
+	height:579px;
+	position:relative;
+	background-color: #fff;
+	margin: auto;
+}
+.head{
+	background-image:url("../Images/AuthorityHead.png"); 
+	background-size:cover;
+	height:106px;
+	width:100%;
+}
+.middle{
+	width:100%;
+	height:439px;
+}
+.left{
+	width:180px;
+	height:439px;
+	background-color:#47a8d0;
+	float:left;
+}
+.time{
+	height:33px;
+	width:100%;
+	/*背景颜色渐变*/
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#fff,endColorStr=#ebf9fe); /*IE 6 7 8*/ 
+		background: -ms-linear-gradient(top, #fff,  #ebf9fe);        /* IE 10 */
+		background:-moz-linear-gradient(top,#fff,#ebf9fe);/*火狐*/ 
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fff), to(#ebf9fe));/*谷歌*/ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ebf9fe));      /* Safari 4-5, Chrome 1-9*/
+		background: -webkit-linear-gradient(top, #fff,#ebf9fe);   /*Safari5.1 Chrome 10+*/
+		background: -o-linear-gradient(top, #fff, #ebf9fe);  /*Opera 11.10+*/
+	
+}
+
+.bggradientcolor{
+	width:8px;
+	height:440px;
+	float:left;
+}
+
+#u1{
+	height:108px;
+	width:100%;
+	background-color: #fff;
+}
+#u2{
+	height:216px;
+	width:100%;
+	background-color: #fff;
+}
+.line{
+	background:linear-gradient(to left,#edf7fc,#3d7caf,#edf7fc);
+	height:1px;
+}
+.topbggradientcolor{
+	height:220px;
+	width:8px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#fff,endColorStr=#46b9d1); /*IE 6 7 8*/ 
+		background: -ms-linear-gradient(top, #fff,  #46b9d1);        /* IE 10 */
+		background:-moz-linear-gradient(top,#fff,#46b9d1);/*火狐*/ 
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#fff), to(#46b9d1));/*谷歌*/ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#46b9d1));      /* Safari 4-5, Chrome 1-9*/
+		background: -webkit-linear-gradient(top, #fff,#46b9d1);   /*Safari5.1 Chrome 10+*/
+		background: -o-linear-gradient(top, #fff, #46b9d1);  /*Opera 11.10+*/
+
+	float:left;
+}
+.buttombggradientcolor{
+	height:220px;
+	width:8px;
+	float:left;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#46b9d1,endColorStr=#fff); /*IE 6 7 8*/ 
+		background: -ms-linear-gradient(top, #46b9d1,  #fff);        /* IE 10 */
+		background:-moz-linear-gradient(top,#46b9d1,#fff);/*火狐*/ 
+		background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#46b9d1), to(#fff));/*谷歌*/ 
+		background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#46b9d1), to(#fff));      /* Safari 4-5, Chrome 1-9*/
+		background: -webkit-linear-gradient(top, #46b9d1, #fff);   /*Safari5.1 Chrome 10+*/
+		background: -o-linear-gradient(top, #46b9d1, #fff);  /*Opera 11.10+*/
+
+}
+
+.list li{
+	list-style-type:none;
+	height:25px;
+	font-size: 12px;
+	line-height: 25px;
+}/*隐藏li标签前面的黑点*/
+
+.image image:Images/down.jpg;
