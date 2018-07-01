@@ -32,10 +32,6 @@
 			}
 		}
 	}
-	function test() {
-		var obj = document.getElementById("l1");
-		alert(obj.innerHTML);
-	}
 </script>
 </head>
 <body>
@@ -43,46 +39,68 @@
 		<div class="head"></div>
 		<div class="middle">
 			<div class="left">
-				<div class = "time"></div>
+				<div class="time"></div>
 				<ul class="list">
-					<li><span style="color:white;">&nbsp;&nbsp;网站内容管理&nbsp;&nbsp;&nbsp;&nbsp;
-					<img src="./Images/right.jpg" id="img1" onclick="doAction(1);"></span></li>
+					<li><span style="color: white;">&nbsp;&nbsp;网站内容管理&nbsp;&nbsp;&nbsp;&nbsp;
+							<img src="./Images/right.jpg" id="img1" onclick="doAction(1);">
+					</span></li>
 					<ul style="display: none;" id="u1">
-						<li style="text-align:center;"><a href="#">留言管理</a></li>
+						<li style="text-align: center;"><img src="./Images/smallright.jpg">
+							 <a href="#">留言管理</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">文章管理</a></li>
+						<li style="text-align: center;"><img src="./Images/smallright.jpg">
+							<a href="#">文章管理</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">审核文章</a></li>
+						<li style="text-align: center;"><img src="./Images/smallright.jpg">
+							<a href="#">审核文章</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">栏目管理</a></li>
+						<li style="text-align: center;"><img src="./Images/smallright.jpg">
+							<a href="#">栏目管理</a></li>
 						<div class="line"></div>
 					</ul>
-					
-					<li><span style="color:white;">&nbsp;&nbsp;系统设置&nbsp;&nbsp;&nbsp;&nbsp;
-					<img src="./Images/right.jpg" id="img2"  onclick="doAction(2);"></span></li>
+
+					<li><span style="color: white;">&nbsp;&nbsp;系统设置&nbsp;&nbsp;&nbsp;&nbsp;
+							<img src="./Images/right.jpg" id="img2" onclick="doAction(2);">
+					</span></li>
 					<ul style="display: none;" id="u2">
-						<li style="text-align:center;"><a href="#">权限管理</a></li>
+						<li style="text-align: center;">
+							<a href="#"><img src="./Images/smallright.jpg">权限管理</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">模块管理</a></li>
+						<li style="text-align: center;">
+							<a href="#"><img src="./Images/smallright.jpg">模块管理</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">角色分配</a></li>
+						<li style="text-align: center;">
+							<a href="#"><img src="./Images/smallright.jpg">角色分配</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">人员管理</a></li>
+						<li style="text-align: center;">
+							<a href="#"><img src="./Images/smallright.jpg">人员管理</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">角色管理</a></li>
+						<li style="text-align: center;">
+							<a href="#"><img src="./Images/smallright.jpg">角色管理</a></li>
 						<div class="line"></div>
-						<li style="text-align:center;"><a href="#">默认功能设置</a></li>
+						<li style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#"><img src="./Images/smallright.jpg">默认功能设置</a></li>
+						<div class="line"></div>
+						<li style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#"><img src="./Images/smallright.jpg">首页信息设置</a></li>
+						<div class="line"></div>
+						<li style="text-align: center;">
+							<a href="#"><img src="./Images/smallright.jpg">码表管理</a></li>
 						<div class="line"></div>
 					</ul>
 				</ul>
 
-				
+
 			</div>
 			<div class="bggradientcolor">
 				<div class="topbggradientcolor"></div>
 				<div class="buttombggradientcolor"></div>
 			</div>
-
+			<div class="right"></div>
+		</div>
+		<div class="bottom">
+			<div class="headbottom"></div>
+			<div class="bottombottom"></div>
 		</div>
 	</div>
 </body>
