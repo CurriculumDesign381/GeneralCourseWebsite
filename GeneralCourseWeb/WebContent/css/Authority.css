@@ -11,7 +11,7 @@ body {
 }
 
 .content {
-	width: 1376px;
+	width: 1366px;
 	height: 579px;
 	position: relative;
 	background-color: #fff;
@@ -66,7 +66,8 @@ body {
 }
 
 .right{
-	width:1188px;
+	margin-top:1px;
+	width:1178px;
 	height:439px;
 	float:left;
 	background-color: skyblue;
@@ -162,4 +163,9 @@ a:visited {
 	font-size: 12px;
 	line-height: 25px;
 } /*隐藏li标签前面的黑点*/
+
+li:hover {
+ cursor: pointer;	
+}
+
 .image image:Images/down.png;
