@@ -18,10 +18,17 @@ body {
 	margin: auto;
 }
 
-.head {
-	background-image: url("../Images/AuthorityHead.png");
+.title {
+	background-image: url("../Images/title.png");
 	background-size: cover;
-	height: 106px;
+	height: 71px;
+	width: 100%;
+}
+
+.head {
+	background-image: url("../Images/head.png");
+	background-size: cover;
+	height: 34px;
 	width: 100%;
 }
 
@@ -155,4 +162,4 @@ a:visited {
 	font-size: 12px;
 	line-height: 25px;
 } /*隐藏li标签前面的黑点*/
-.image image:Images/down.jpg;
+.image image:Images/down.png;
