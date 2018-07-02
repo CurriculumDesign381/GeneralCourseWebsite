@@ -7,10 +7,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理系统设置</title>
-<link rel="stylesheet" type="text/css" href="../css/Authority.css" />
-<link rel="stylesheet" type="text/css" href="../css/articleManage.css" />
+<link rel="stylesheet" type="text/css" href="../css/Authority.css">
+<link rel="stylesheet" type="text/css" href="../css/articleManage.css">
+<link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+<script type="text/javascript" src="../layui/layui.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/easyui.css">
+<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+
 <script type="text/javascript">
+
+	$(document).ready(function(){ 
+		　　$.get("articleManage.jsp",function(data){ //初始将 include div#iframe
+		　　　　$("#iframe").html(data);
+		　　});
+		});
+		
+		$(function(){
+		　　$('.insideUl li').click(function() {
+		  　　// 找出 li 中的超链接 href(#id)
+		 　　　　var $this = $(this),
+		 　　　　clickTab = $this.find('a').attr('target'); // 找到链接a中的target的值
+		 　　　　$.get(clickTab,function(data){
+		 　　　　　　$("#iframe").html(data); 
+		 　　　　});
+		　　});
+		});
 	function doAction(index) {
 		var obj = document.getElementById('u' + index);
 		if (obj.style.display == "none") {
@@ -29,24 +52,6 @@
 			}
 		}
 	}
-	
-
-	$(document).ready(function(){ 
-	　　$.get("BBSManage.jsp",function(data){ //初始将 include div#iframe
-	　　　　$("#iframe").html(data);
-	　　});
-	});
-	
-	$(function(){
-	　　$('.insideUl li').click(function() {
-	  　　// 找出 li 中的超链接 href(#id)
-	 　　　　var $this = $(this),
-	 　　　　clickTab = $this.find('a').attr('target'); // 找到链接a中的target的值
-	 　　　　$.get(clickTab,function(data){
-	 　　　　　　$("#iframe").html(data); 
-	 　　　　});
-	　　});
-	});
 	
 </script>
 </head>
@@ -113,7 +118,9 @@
 				<div class="topbggradientcolor"></div>
 				<div class="buttombggradientcolor"></div>
 			</div>
-			<div class="right" id="iframe"></div>
+			<div class="right" id="iframe">
+			
+			</div>
 		</div>
 		<div class="bottom">
 			<div class="headbottom"></div>

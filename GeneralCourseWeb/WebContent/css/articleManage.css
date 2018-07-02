@@ -1,8 +1,46 @@
 @charset "UTF-8";
 
 
+body .layui-tree-skin-shihuang .layui-tree-branch{color: #EDCA50;}  
 .articleManageHead {
 	background-image: url("../Images/articleManageHead.png");
 	width:100%;
 	height: 39px;
 }
+
+.articleManage_content {
+	width:100%;
+	height:392px;
+	margin-top: 7px;
+}
+
+.articleManage_left {
+	width: 190px;
+	height:100%;
+	float: left;
+	background-color: #f1fbff;
+}
+
+.articleManage_right {
+	width: 988px;
+	height:100%;
+	float: left;
+	background-color: #f1fbff;
+	border-top: 1px solid #abd8f9; 
+}
+
+.articleManage_rightOption {
+	font-size:12px;
+	color:#004779;
+	line-height:28px;
+	height:28px;
+	width: 988px;
+	background-color: #f1fbff;
+	border-bottom: 4px solid #abd8f9; 
+}
+
+.articleManage_tab {
+	width: 988px;
+	height :297px;
+}
+
