@@ -44,16 +44,10 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if (state == true) {
-			request.getRequestDispatcher("admin/login.jsp").forward(request, response);
+			request.getRequestDispatcher("admin/backStageManage.jsp").forward(request, response);
 
 		}
-		/*
-		 * else if(state==0){
-		 * request.getServletContext().getRequestDispatcher("/jsp/main.jsp").forward(
-		 * request, response);
-		 * 
-		 * }
-		 */
+		
 		else {
 			/* response.setCharacterEncoding("GBK"); */
 			response.setCharacterEncoding("UTF-8");

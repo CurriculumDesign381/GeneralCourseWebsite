@@ -24,7 +24,6 @@ public class DBUtil {
 
 		String userName = "root";
 		String userPWD = "";
-
 		Class.forName(driverName);
 
 		Connection connection = DriverManager.getConnection(url, userName, userPWD);
