@@ -23,10 +23,10 @@ public static boolean login(String userID,String passWord) {
 	if (list!=null && !list.isEmpty()) {
 		
 
-	if (!"".equals(userID) || !"".equals(passWord)) {
+	if (!"".equals(userID) || !"".equals(passWord)) {	
 		System.out.println("userID:" + userID);
 		System.out.println("passWord:" + passWord);
-		//System.out.println("list:" + list.get(0).get("userName"));
+		System.out.println("list:" + list.get(0).get("userName"));
 		System.out.println("list:" + list.get(0).get("PassWord"));
 		if (list.get(0).get("userID").equals(userID) && list.get(0).get("PassWord").equals(passWord)) {
 			status = true;

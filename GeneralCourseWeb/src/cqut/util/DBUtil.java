@@ -55,12 +55,12 @@ public class DBUtil {
 			Map<String, Object> map1 = new HashMap<String, Object>();
 			String userName = rs.getString("userName");
 			String userID = rs.getString("userID");
-			int operationTypeID = rs.getInt("operationTypeID");
+			int roleID = rs.getInt("roleID");
 			String passWord = rs.getString("passWord");
 
 			map1.put("userName", userName);
 			map1.put("userID", userID);
-			map1.put("operationTypeID", operationTypeID);
+			map1.put("roleID", roleID);
 			map1.put("PassWord", passWord);
 			list.add(i, map1);
 			i++;
@@ -84,17 +84,104 @@ public static List<Map<String, Object>> excuteQueryofpermission(String sql) thro
 		int roleID = rs.getInt("roleID");
 		
 		String operationTypeID = rs.getString("operationTypeID");
-		String name = rs.getString("name");
+		/*String name = rs.getString("name");*/
 		
 		
 		map1.put("operationTypeID", operationTypeID);
-		map1.put("userID", roleID);
+		map1.put("roleID", roleID);
 		map1.put("roleName", roleName);
-		map1.put("name", name);
+		/*map1.put("name", name);*/
 		list.add(i,map1);
 		 
 	}
 	return list;
 	
 }
+public static List<Map<String, Object>> excuteQueryofcontent(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String Title = rs.getString("Title");
+		int Anthor = rs.getInt("Anthor");
+	
+		String ColumnTitle = rs.getString("ColumnTitle");
+		
+		String submitTime = rs.getTimestamp("CreateTime").toString().substring(0,
+				rs.getTimestamp("CreateTime").toString().length() - 2);
+		int roleID = rs.getInt("roleID");
+		
+		
+		
+		map1.put("Title", Title);
+		map1.put("Anthor", Anthor);
+		map1.put("ColumnTitle", ColumnTitle);
+		map1.put("submitTime", submitTime);
+		map1.put("roleID", roleID);
+		list.add(i,map1);
+		 
+	}
+	return list;
+	
+}
+
+public static List<Map<String, Object>> excuteQueryByoperation(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String name = rs.getString("name");
+		float TemplateSonID = rs.getFloat("TemplateSonID");
+	
+		
+		
+		
+		
+		map1.put("name", name);
+		map1.put("TemplateSonID", TemplateSonID);
+		
+		list.add(i,map1);
+		 
+	}
+	return list;
+	
+}
+public static List<Map<String, Object>> excuteQueryByTemplate(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String TemplateName = rs.getString("TemplateName");
+		int TemplateID = rs.getInt("TemplateID");	
+		map1.put("TemplateName", TemplateName);
+		map1.put("TemplateID", TemplateID);
+		
+		list.add(i,map1);
+		 
+	}
+	return list;
+	
+}
+
 }

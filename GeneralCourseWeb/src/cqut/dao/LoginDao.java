@@ -19,7 +19,7 @@ public class LoginDao {
 
 	
 	public List<Map<String, Object>> login(String userID ){
-		String sql ="select userName,userID,operationTypeID,passWord from user where userID = "+ userID;
+		String sql ="select userName,userID,roleID,passWord from user where userID = "+ userID;
 		List<Map<String, Object>> list = null;
 		try {
 	 list = DBUtil.excuteQueryFromLogin(sql);
