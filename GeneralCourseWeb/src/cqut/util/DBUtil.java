@@ -14,6 +14,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 /*import com.mysql.jdbc.ResultSet;*/
 
 public class DBUtil {
@@ -24,7 +26,6 @@ public class DBUtil {
 
 		String userName = "root";
 		String userPWD = "";
-
 		Class.forName(driverName);
 
 		Connection connection = DriverManager.getConnection(url, userName, userPWD);
@@ -67,5 +68,32 @@ public class DBUtil {
 		return list;
 	}
 
+public static List<Map<String, Object>> excuteQueryofpermission(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
 
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+		String roleName = rs.getString("roleName");
+		int roleID = rs.getInt("roleID");
+		
+		String operationTypeID = rs.getString("operationTypeID");
+		String name = rs.getString("name");
+		
+		
+		map1.put("operationTypeID", operationTypeID);
+		map1.put("userID", roleID);
+		map1.put("roleName", roleName);
+		map1.put("name", name);
+		list.add(i,map1);
+		 
+	}
+	return list;
+	
+}
 }
