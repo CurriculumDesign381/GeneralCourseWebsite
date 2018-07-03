@@ -38,9 +38,10 @@ public class PerssionDao {
 			    for (Map.Entry<String, Object> m : map.entrySet()) {
 			   
 			    }
-			    list.get(i).put("TemplateSonID", list1.get(0).get("TemplateSonID"));
+			    list.get(i).put("TemplateID", list1.get(0).get("TemplateID"));
 			    list.get(i).put("name", list1.get(0).get("name"));
-			    System.out.println(list1.get(0).get("TemplateSonID"));
+			    list.get(i).put("TemplateName", list1.get(0).get("TemplateName"));
+			    System.out.println(list1.get(0).get("TemplateID"));
 			    i++;
 			}
 		return list;
@@ -49,7 +50,15 @@ public class PerssionDao {
 	
 	//根据operationTypeID获取TemplateSonID,name
 	public List<Map<String, Object>> selectInforByoperation(int operationTypeID) throws Exception {
-		String sql = "select name,TemplateSonID from permission where operationTypeID="+operationTypeID;
+		String sql = "SELECT\r\n" + 
+				"	NAME,\r\n" + 
+				"	template.TemplateID,\r\n" + 
+				"  template.TemplateName\r\n" + 
+				"FROM\r\n" + 
+				"	permission\r\n" + 
+				"JOIN template ON permission.TemplateID = template.TemplateID\r\n" + 
+				"WHERE\r\n" + 
+				"	operationTypeID ="+operationTypeID;
 		return DBUtil.excuteQueryByoperation(sql);
 	}
 	//获取模板的方法

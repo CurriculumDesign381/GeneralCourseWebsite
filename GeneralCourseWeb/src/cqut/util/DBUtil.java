@@ -169,14 +169,15 @@ public static List<Map<String, Object>> excuteQueryByoperation(String sql) throw
 		Map<String, Object> map1 = new HashMap<String, Object>();
 	
 		String name = rs.getString("name");
-		float TemplateSonID = rs.getFloat("TemplateSonID");
-	
+		int TemplateID = rs.getInt("TemplateID");
+		String TemplateName = rs.getString("TemplateName");
 		
 		
 		
 		
 		map1.put("name", name);
-		map1.put("TemplateSonID", TemplateSonID);
+		map1.put("TemplateID", TemplateID);
+		map1.put("TemplateName", TemplateName);
 		
 		list.add(i,map1);
 		 
