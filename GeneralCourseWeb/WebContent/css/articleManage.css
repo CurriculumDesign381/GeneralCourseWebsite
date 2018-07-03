@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
 
-body .layui-tree-skin-shihuang .layui-tree-branch{color: #EDCA50;}  
+body {
+    width: 1178px;
+    height: 439px;
+    line-height: 24px;
+}
+
+
 .articleManageHead {
 	background-image: url("../Images/articleManageHead.png");
 	width:100%;

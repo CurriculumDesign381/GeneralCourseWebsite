@@ -7,9 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理系统设置</title>
-<link rel="stylesheet" type="text/css" href="css/default.css" />
-<link rel="stylesheet" type="text/css" href="css/articleManage.css" />
-<link rel="stylesheet" type="text/css" href="css/authority.css" />
+<link rel="stylesheet" type="text/css" href="css/default.css">
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	function doAction(index) {
@@ -70,10 +68,12 @@
 					</span></li>
 					<ul class="insideUl" style="display: none;" id="u1">
 						<li style="text-align: center;"><img
-							src="Images/smallright.jpg"> <a target="BBSManage.jsp">留言管理</a></li>
+							src="Images/smallright.jpg"> <a href="BBSManageServlet"
+							target="innerFrame">留言管理</a></li>
 						<div class="line"></div>
 						<li style="text-align: center;"><img
-							src="Images/smallright.jpg"> <a target="articleManage.jsp">文章管理</a></li>
+							src="Images/smallright.jpg"> <a href="ArticleManageServlet"
+							target="innerFrame">文章管理</a></li>
 						<div class="line"></div>
 						<li style="text-align: center;"><img
 							src="Images/smallright.jpg"> <a target="checkArticle.jsp">审核文章</a></li>
@@ -123,7 +123,7 @@
 				<div class="buttombggradientcolor"></div>
 			</div>
 			<div class="right">
-			<iframe src="admin/BBSManage.jsp" class="innerFrame" name="innerFrame"
+			<iframe src="BBSManageServlet" class="innerFrame" name="innerFrame"
 					frameborder="0" scrolling="auto"
 					style="margin: 0px auto; height: 100%;width:100%; -ms-overflow-x: hidden;"></iframe>
 			</div>
