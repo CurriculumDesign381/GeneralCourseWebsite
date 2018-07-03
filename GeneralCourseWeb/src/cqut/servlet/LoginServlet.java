@@ -2,6 +2,8 @@ package cqut.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import cqut.service.LoginService;
+import cqut.dao.PerssionDao;
+
 
 /**
  * Servlet implementation class loginServlet
@@ -44,8 +48,21 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		if (state == true) {
-			request.getRequestDispatcher("admin/backStageManage.jsp").forward(request, response);
+			List<Map<String, Object>> list;//获取当前管理员所拥有的角色类型和角色所拥有角色的权限类型和具体权限
+			List<Map<String, Object>> templateName;//获取权限类型
+			try {
+				templateName = PerssionDao.PerssionDao().selectInforFromTemplate();
+				list = PerssionDao.PerssionDao().selectRoleInfor(admin);
+				request.getSession().setAttribute("admin", admin);
+				request.getSession().setAttribute("password", passWord);
+				request.getSession().setAttribute("templateName", templateName);
+				request.getSession().setAttribute("list", list);
+				request.getRequestDispatcher("admin/backStageManage.jsp").forward(request, response);
 
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		else {
