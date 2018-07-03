@@ -1,0 +1,56 @@
+@charset "UTF-8";
+.authority{
+	width:1178px;
+	height:439px;
+	float:left;
+	background-color: #fff;
+	font-size: 12px;
+}
+
+.authorityhead{
+	width:1178px;
+	height:39px;
+	border-bottom-color: #fff;
+	background-image: url("../Images/articleManageHead.png");
+}
+.authoritycontent{
+	width:1178px;
+	height:393px;
+	padding-top:7px;
+}
+.authoritymanager{
+	width:121px;
+	height: 393px;
+	background-color: #fff;
+	padding-left:9px;
+	float:left;
+}
+.allauthority{
+	/*width:174px;*/
+	height:315px;
+	padding-left:180px;
+	float:left;
+	display: none;
+}
+
+a:link {
+	color: #000000;
+	TEXT-DECORATION: none; /*去掉超链接下划线且设置字体颜色*/
+}
+
+a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+
+.authoritymanager li {
+	list-style-type: none;
+	font-size: 12px;
+} /*隐藏li标签前面的黑点*/
+.allauthority li{
+	list-style-type: none;
+	font-size: 12px;
+}
+li:hover {
+ cursor: pointer;	
+}

@@ -7,52 +7,54 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理系统设置</title>
-<link rel="stylesheet" type="text/css" href="../css/Authority.css">
-<link rel="stylesheet" type="text/css" href="../css/articleManage.css">
-<link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
-<script type="text/javascript" src="../layui/layui.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/easyui.css">
-<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="../js/main.js"></script>
-<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/articleManage.css" />
+<link rel="stylesheet" type="text/css" href="css/authority.css" />
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-
-	$(document).ready(function(){ 
-		　　$.get("articleManage.jsp",function(data){ //初始将 include div#iframe
-		　　　　$("#iframe").html(data);
-		　　});
-		});
-		
-		$(function(){
-		　　$('.insideUl li').click(function() {
-		  　　// 找出 li 中的超链接 href(#id)
-		 　　　　var $this = $(this),
-		 　　　　clickTab = $this.find('a').attr('target'); // 找到链接a中的target的值
-		 　　　　$.get(clickTab,function(data){
-		 　　　　　　$("#iframe").html(data); 
-		 　　　　});
-		　　});
-		});
 	function doAction(index) {
 		var obj = document.getElementById('u' + index);
 		if (obj.style.display == "none") {
 			obj.style.display = "block";
 			if (index == '1') {
-				document.getElementById("img1").src = '../Images/down.png';
+				document.getElementById("img1").src = 'Images/down.png';
 			} else {
-				document.getElementById("img2").src = '../Images/down.png';
+				document.getElementById("img2").src = 'Images/down.png';
 			}
 		} else {
 			obj.style.display = "none";
 			if (index == '1') {
-				document.getElementById("img1").src = '../Images/right.png';
+				document.getElementById("img1").src = 'Images/right.png';
 			} else {
-				document.getElementById("img2").src = '../Images/right.png';
+				document.getElementById("img2").src = 'Images/right.png';
 			}
 		}
 	}
+
+	/*$(document).ready(function(){ 
+	　　$.get("admin/BBSManage.jsp",function(data){ //初始将 include div#iframe
+	　　　　$("#iframe").html(data);
+	　　});
+	});
 	
+
+	$(function(){
+	　　$('.insideUl li').click(function() {
+	  　　// 找出 li 中的超链接 href(#id)
+	 　　　　var $this = $(this),
+	 　　　　clickTab = 'admin/' + $this.find('a').attr('target'); // 找到链接a中的target的值
+	 　　　　$.ajax({
+		 		dataType:'text',
+		 		url:clickTab,
+		 		data: { 			
+		 		},
+		 		success:function(msg) {
+		 			$('#iframe').html(msg);
+		 		}
+	 　　　　});
+	　　});
+	});
+	 */
 </script>
 </head>
 <body>
@@ -64,50 +66,52 @@
 				<div class="time"></div>
 				<ul class="list">
 					<li><span style="color: white;">&nbsp;&nbsp;网站内容管理&nbsp;&nbsp;&nbsp;&nbsp;
-							<img src="../Images/right.png" id="img1" onclick="doAction(1);">
+							<img src="Images/right.png" id="img1" onclick="doAction(1);">
 					</span></li>
 					<ul class="insideUl" style="display: none;" id="u1">
-						<li style="text-align: center;"><img src="../Images/smallright.jpg">
-							 <a target="BBSManage.jsp">留言管理</a></li>
+						<li style="text-align: center;"><img
+							src="Images/smallright.jpg"> <a target="BBSManage.jsp">留言管理</a></li>
 						<div class="line"></div>
-						<li style="text-align: center;"><img src="../Images/smallright.jpg">
-							<a target="articleManage.jsp">文章管理</a></li>
+						<li style="text-align: center;"><img
+							src="Images/smallright.jpg"> <a target="articleManage.jsp">文章管理</a></li>
 						<div class="line"></div>
-						<li style="text-align: center;"><img src="../Images/smallright.jpg">
-							<a target="checkArticle.jsp">审核文章</a></li>
+						<li style="text-align: center;"><img
+							src="Images/smallright.jpg"> <a target="checkArticle.jsp">审核文章</a></li>
 						<div class="line"></div>
-						<li style="text-align: center;"><img src="../Images/smallright.jpg">
-							<a target="column.jsp">栏目管理</a></li>
+						<li style="text-align: center;"><img
+							src="Images/smallright.jpg"> <a target="column.jsp">栏目管理</a></li>
 						<div class="line"></div>
 					</ul>
 
 					<li><span style="color: white;">&nbsp;&nbsp;系统设置&nbsp;&nbsp;&nbsp;&nbsp;
-							<img src="../Images/right.png" id="img2" onclick="doAction(2);">
+							<img src="Images/right.png" id="img2" onclick="doAction(2);">
 					</span></li>
 					<ul class="insideUl" style="display: none;" id="u2">
-						<li style="text-align: center;">
-							<a target="authority.jsp"><img src="../Images/smallright.jpg">权限管理</a></li>
+						<li style="text-align: center;"><a href="PermissionServlet"
+							target="innerFrame"><img src="Images/smallright.jpg">权限管理</a></li>
 						<div class="line"></div>
-						<li style="text-align: center;">
-							<a target="module.jsp"><img src="../Images/smallright.jpg">模块管理</a></li>
+						<li style="text-align: center;"><a target="module.jsp"><img
+								src="Images/smallright.jpg">模块管理</a></li>
 						<div class="line"></div>
-						<li style="text-align: center;">
-							<a target="roleDivide.jsp"><img src="../Images/smallright.jpg">角色分配</a></li>
+						<li style="text-align: center;"><a target="roleDivide.jsp"><img
+								src="Images/smallright.jpg">角色分配</a></li>
 						<div class="line"></div>
-						<li style="text-align: center;">
-							<a target="personManage.jsp"><img src="../Images/smallright.jpg">人员管理</a></li>
+						<li style="text-align: center;"><a target="personManage.jsp"><img
+								src="Images/smallright.jpg">人员管理</a></li>
 						<div class="line"></div>
-						<li style="text-align: center;">
-							<a target="roleManage.jsp"><img src="../Images/smallright.jpg">角色管理</a></li>
-						<div class="line"></div>
-						<li style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a target="default.jsp"><img src="../Images/smallright.jpg">默认功能设置</a></li>
+						<li style="text-align: center;"><a target="roleManage.jsp"><img
+								src="Images/smallright.jpg">角色管理</a></li>
 						<div class="line"></div>
 						<li style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a target="homePageInfo.jsp"><img src="../Images/smallright.jpg">首页信息设置</a></li>
+							<a target="default.jsp"><img src="Images/smallright.jpg">默认功能设置</a>
+						</li>
 						<div class="line"></div>
-						<li style="text-align: center;">
-							<a target="codeTable.jsp"><img src="../Images/smallright.jpg">码表管理</a></li>
+						<li style="text-align: center;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a target="homePageInfo.jsp"><img src="Images/smallright.jpg">首页信息设置</a>
+						</li>
+						<div class="line"></div>
+						<li style="text-align: center;"><a target="codeTable.jsp"><img
+								src="Images/smallright.jpg">码表管理</a></li>
 						<div class="line"></div>
 					</ul>
 				</ul>
@@ -118,8 +122,10 @@
 				<div class="topbggradientcolor"></div>
 				<div class="buttombggradientcolor"></div>
 			</div>
-			<div class="right" id="iframe">
-			
+			<div class="right">
+			<iframe src="admin/BBSManage.jsp" class="innerFrame" name="innerFrame"
+					frameborder="0" scrolling="auto"
+					style="margin: 0px auto; height: 100%;width:100%; -ms-overflow-x: hidden;"></iframe>
 			</div>
 		</div>
 		<div class="bottom">
