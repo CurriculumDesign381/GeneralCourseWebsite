@@ -93,6 +93,7 @@ public static List<Map<String, Object>> excuteQueryofpermission(String sql) thro
 		list.add(i,map1);
 		 
 	}
+	connection.close();
 	return list;
 	
 }
@@ -109,13 +110,13 @@ public static List<Map<String, Object>> excuteQueryofcontent(String sql) throws 
 		Map<String, Object> map1 = new HashMap<String, Object>();
 	
 		String Title = rs.getString("Title");
-		int Anthor = rs.getInt("Anthor");
+		String Anthor = rs.getString("Anthor");
 	
-		String ColumnTitle = rs.getString("ColumnTitle");
+		String ColumnTitle = rs.getString("ColumnName");
 		
 		String submitTime = rs.getTimestamp("CreateTime").toString().substring(0,
 				rs.getTimestamp("CreateTime").toString().length() - 2);
-		int roleID = rs.getInt("roleID");
+		String roleName = rs.getString("roleName");
 		
 		
 		
@@ -123,10 +124,11 @@ public static List<Map<String, Object>> excuteQueryofcontent(String sql) throws 
 		map1.put("Anthor", Anthor);
 		map1.put("ColumnTitle", ColumnTitle);
 		map1.put("submitTime", submitTime);
-		map1.put("roleID", roleID);
+		map1.put("roleName", roleName);
 		list.add(i,map1);
 		 
 	}
+	connection.close();
 	return list;
 	
 }
@@ -156,6 +158,7 @@ public static List<Map<String, Object>> excuteQueryByoperation(String sql) throw
 		list.add(i,map1);
 		 
 	}
+	connection.close();
 	return list;
 	
 }
@@ -179,6 +182,31 @@ public static List<Map<String, Object>> excuteQueryByTemplate(String sql) throws
 		list.add(i,map1);
 		 
 	}
+	connection.close();
+	return list;
+	
+}
+public static List<Map<String, Object>> excuteQueryFromColumn(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String ColumnName = rs.getString("ColumnName");
+	
+		map1.put("ColumnName", ColumnName);
+	
+		
+		list.add(i,map1);
+		 
+	}
+	connection.close();
 	return list;
 	
 }
