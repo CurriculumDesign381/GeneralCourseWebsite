@@ -16,7 +16,7 @@ public class test {
 
 /*List<Map<String, Object>> list = PerssionDao.PerssionDao().selectInforByoperation(1);*/
 		
-		List<Map<String, Object>> list=PerssionDao.PerssionDao().selectRoleInfor("11603080109");
+		List<Map<String, Object>> list=PerssionDao.PerssionDao().selectRoleInfor("11603080110");
 		/*List<Map<String, Object>> list = ContentManageDao.getContentManageDao().selectInforFromColumn();
 int i =0;*/
 System.out.println("======================华丽的分割线=============================");
@@ -32,8 +32,8 @@ i++;
     
  
     /*	System.out.println(list.get(0).get("TemplateName"));*/
-    	/* System.out.print("key:"+m.getKey() + "    ");
-    	    System.out.println("value:"+m.getValue());*/
+    	System.out.print("key:"+m.getKey() + "    ");
+    	    System.out.println("value:"+m.getValue());
     }
 	/*i++;
     System.out.println(list.get(i).get("TemplateName"));*/
@@ -41,12 +41,12 @@ i++;
     
 }
 System.out.println("========================华丽的分割线================================");
-/* System.out.println(
- * "========================华丽的分割线================================");
- * List<Map<String, Object>> list1 =
- * PerssionDao.PerssionDao().selectInforFromTemplate(); for (int j = 0; j <
- * list1.size(); j++) { System.out.println(list1.get(j).get("TemplateName")); }
- */
+ System.out.println(
+"========================华丽的分割线================================");
+ List<Map<String, Object>> list1 =
+ PerssionDao.PerssionDao().selectInforFromTemplate(); for (int j = 0; j <
+ list1.size(); j++) { System.out.println(list1.get(j)); }
+
 	}
 
 }
