@@ -29,19 +29,19 @@
 			<div id="nav_first"></div>
 			<ul id="nav_ul">
 
-				<li class="nav_ul_li"><a href="#">首页</a></li>
-				<li class="nav_ul_li"><a href="#">课程介绍</a></li>
-				<li class="nav_ul_li"><a href="#">教室团队</a></li>
-				<li class="nav_ul_li"><a href="#">学习资源</a></li>
-				<li class="nav_ul_li"><a href="#">课程建设</a></li>
-				<li class="nav_ul_li"><a href="#">教学互动</a></li>
-				<li class="nav_ul_li"><a href="#">申请表</a></li>
+				<li class="nav_ul_li"><a href="homePageCenter.jsp" target="innerFrame">首页</a></li>
+				<li class="nav_ul_li"><a href="homePageCenter.jsp" target="innerFrame">课程介绍</a></li>
+				<li class="nav_ul_li"><a href="homePageCenter.jsp" target="innerFrame">教室团队</a></li>
+				<li class="nav_ul_li"><a href="homePageCenter.jsp" target="innerFrame">学习资源</a></li>
+				<li class="nav_ul_li"><a href="homePageCenter.jsp" target="innerFrame">课程建设</a></li>
+				<li class="nav_ul_li"><a href="homePageCenter.jsp" target="innerFrame">教学互动</a></li>
+				<li class="nav_ul_li"><a href="homePageCenter.jsp" target="innerFrame">申请表</a></li>
 			</ul>
 			<div id="nav_last"></div>
 			
 		</div>
 	</div>
-    <iframe src="../html/homePageCenter.html" frameborder="0" width="100%" height="776" scrolling="no"></iframe>
+    <iframe src="../FrontEnd/homePageCenter.jsp" frameborder="0" width="100%" height="776" scrolling="no" class="innerFrame" name="innerFrame"></iframe>
 	<script src="../js/head.js" type="text/javascript"></script>
 	<div id="foot">
 		<ul id="site_info">
