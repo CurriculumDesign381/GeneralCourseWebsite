@@ -31,4 +31,17 @@ public class BBSManageDao {
 		return list;
 	}
 
+
+	public boolean deleteMassageById(Integer ID) {
+		String sql = "DELETE FROM `bbs` WHERE (`BBSid`='"+ ID +"')";
+		try {
+			DBUtil.execute(sql);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+
 }

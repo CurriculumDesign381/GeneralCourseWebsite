@@ -59,9 +59,9 @@
 <body>
 
 	<%HashMap<Integer,String> hash = new HashMap<>();
-	hash.put(12, "admin/BBSManage.jsp");
-	hash.put(11, "admin/articleManage.jsp");
-	hash.put(10, "admin/checkArticle.jsp");
+	hash.put(12, "BBSManageServlet");
+	hash.put(11, "ArticleManageServlet");
+	hash.put(10, "CheckArticleServlet");
 	hash.put(9, "admin/column.jsp");
 	hash.put(8, "PermissionServlet");
 	hash.put(7, "admin/module.jsp");
@@ -117,7 +117,7 @@
 				<div class="buttombggradientcolor"></div>
 			</div>
 			<div class="right">
-			<iframe src="admin/BBSManage.jsp" class="innerFrame" name="innerFrame"
+			<iframe src="BBSManageServlet" class="innerFrame" name="innerFrame"
 					frameborder="0" scrolling="auto"
 					style="margin: 0px auto; height: 100%;width:100%; -ms-overflow-x: hidden;"></iframe>
 			</div>

@@ -40,8 +40,8 @@ public class BBSInfoServlet extends HttpServlet {
             switch (memthodname){
                 case "queryList":
                     break;
-                case "deleteuv":
-                    deleteUv(request,response);
+                case "delete":
+                    deleteMessage(request,response);
                     break;
                 default:
                     queryList(request, response);
@@ -58,8 +58,28 @@ public class BBSInfoServlet extends HttpServlet {
 	 * @param request
 	 * @param response
 	 */
-	private void deleteUv(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	private void deleteMessage(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			Integer ID = Integer.parseInt(request.getParameter("BBSId"));
+			response.setStatus(200);
+			
+			if(ID < 0) {
+				response.getWriter().print("参数无效");
+			}
+			
+			BBSManageDao bbsManageDao = new BBSManageDao();
+			boolean state = bbsManageDao.deleteMassageById(ID);
+			JSONObject jsonObject = new JSONObject();
+	        jsonObject.put("state",state);
+	        jsonObject.put("code",0);
+	        jsonObject.put("msg","null");
+	        System.out.println(jsonObject);
+	        response.getWriter().print(jsonObject);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -96,7 +116,11 @@ public class BBSInfoServlet extends HttpServlet {
         // 新建一个json对象
         JSONObject jsonObject = null;
         // 遍历泛型集合
-        for (int i = startIndex; i < startIndex + limit ; i++) {
+        int end = startIndex + limit;
+        if((startIndex + limit) > (list.size() - 1)) {
+        	end = list.size();
+        }
+        for (int i = startIndex; i < end ; i++) {
         	System.out.println(list.get(i).toString());
             jsonObject = new JSONObject(list.get(i));
             jsonArray.put(jsonObject);
