@@ -26,7 +26,7 @@ public class DBUtil {
 		String url =  "jdbc:mysql://localhost:3306/generalcoursewebsite?serverTimezone=GMT";
 
 		String userName = "root";
-		String userPWD = "root";
+		String userPWD = "";
 		Class.forName(driverName);
 
 		Connection connection = DriverManager.getConnection(url, userName, userPWD);
