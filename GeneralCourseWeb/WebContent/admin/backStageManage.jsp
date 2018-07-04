@@ -58,19 +58,19 @@
 </head>
 <body>
 
-	<%HashMap<String,String> hash = new HashMap<>();
-	hash.put("00", "admin/BBSManage.jsp");
-	hash.put("01", "admin/articleManage.jsp");
-	hash.put("02", "admin/checkArticle.jsp");
-	hash.put("03", "admin/column.jsp");
-	hash.put("10", "PermissionServlet");
-	hash.put("11", "admin/module.jsp");
-	hash.put("12", "admin/roleDivide.jsp");
-	hash.put("13", "admin/personManage.jsp");
-	hash.put("14", "admin/roleManage.jsp");
-	hash.put("15", "admin/default.jsp");
-	hash.put("16", "admin/homePageInfo.jsp");
-	hash.put("17", "admin/codeTable.jsp");
+	<%HashMap<Integer,String> hash = new HashMap<>();
+	hash.put(12, "admin/BBSManage.jsp");
+	hash.put(11, "admin/articleManage.jsp");
+	hash.put(10, "admin/checkArticle.jsp");
+	hash.put(9, "admin/column.jsp");
+	hash.put(8, "PermissionServlet");
+	hash.put(7, "admin/module.jsp");
+	hash.put(6, "admin/roleDivide.jsp");
+	hash.put(5, "admin/personManage.jsp");
+	hash.put(4, "admin/roleManage.jsp");
+	hash.put(3, "admin/default.jsp");
+	hash.put(2, "admin/homePageInfo.jsp");
+	hash.put(1, "admin/codeTable.jsp");
 	%>
 	<div class="content">
 		<div class="title"></div>
@@ -82,13 +82,13 @@
 					<%
 					List<Map<String, Object>> templateName =(List<Map<String, Object>>)request.getAttribute("templateName");
 					int size=templateName.size();
-					ArrayList<ArrayList<String>> authority = new ArrayList<>();
+					ArrayList<Map<String,Integer>> authority = new ArrayList<>();
 					List<Map<String, Object>> list =(List<Map<String, Object>>)request.getAttribute("list");
 					for(int i = 0;i <templateName.size();i++){ 
-						authority.add(new ArrayList<String>());
+						authority.add(new HashMap<String,Integer>());
 						for(int j = 0; j < list.size();j++){
 							if(list.get(j).get("TemplateName").equals(templateName.get(i).get("TemplateName"))){
-								authority.get(i).add((String)list.get(j).get("name"));
+								authority.get(i).put((String)list.get(j).get("name"),Integer.parseInt((String)list.get(j).get("operationTypeID")));
 							}
 						
 						}
@@ -100,11 +100,10 @@
 							<img src="Images/right.png" id="img<%=i%>" onclick="doAction(<%=i%>);">
 					</span></li>
 					<ul style="display: none;" id="u<%=i%>">
-						<%for(int j = 0; j < authority.get(i).size();j++){ %>
+						<%for(String key:authority.get(i).keySet()){ %>
 						<li style="text-align: left;list-style-type: none;font-size:12px;background-color:#fff;">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							
-							<img src="Images/smallright.jpg"> <a href="<%=hash.get(i+""+j)%>" target="innerFrame"><%=authority.get(i).get(j)%></a></li>
+							<img src="Images/smallright.jpg"> <a href="<%=hash.get(authority.get(i).get(key))%>" target="innerFrame"><%=key%></a></li>
 							<div class="line"></div>
 						
 						<%}%>
