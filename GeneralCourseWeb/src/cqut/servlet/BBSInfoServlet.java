@@ -70,11 +70,11 @@ public class BBSInfoServlet extends HttpServlet {
 	 */
 	private void queryList(HttpServletRequest request, HttpServletResponse response) {
 		BBSManageDao bbsManageDao = new BBSManageDao();
-		Integer limit = Integer.parseInt(request.getParameter("limit"));
+		Integer limit =  Integer.parseInt(request.getParameter("limit"));
 		Integer page = Integer.parseInt(request.getParameter("page"));
 		try {
 			List<Map<String, Object>> list = bbsManageDao.selectAllInfo();
-			String jsonstr = ConverListToPageJson(list, (page - 1) * limit, list.size());
+			String jsonstr = ConverListToPageJson(list, page, limit, list.size());
 			System.out.println(jsonstr);
 			request.setAttribute("result", jsonstr);
 			response.setContentType("text/html;charset=UTF-8");
@@ -86,15 +86,19 @@ public class BBSInfoServlet extends HttpServlet {
 		
 	}
 
-	private String ConverListToPageJson(List<Map<String, Object>> list, int size) {
+	private String ConverListToPageJson(List<Map<String, Object>> list, int page, int limit, int size) {
+		int startIndex = (page-1)*limit;
+		if (startIndex >  list.size() -2) {
+			startIndex = list.size() - limit;
+		}
 		 // 新建一个json数组
         JSONArray jsonArray = new JSONArray();
         // 新建一个json对象
         JSONObject jsonObject = null;
         // 遍历泛型集合
-        for (Map<String, Object> map : list) {
-        	System.out.println(map.toString());
-            jsonObject = new JSONObject(map);
+        for (int i = startIndex; i < startIndex + limit ; i++) {
+        	System.out.println(list.get(i).toString());
+            jsonObject = new JSONObject(list.get(i));
             jsonArray.put(jsonObject);
         }
         // 转换数据格式
