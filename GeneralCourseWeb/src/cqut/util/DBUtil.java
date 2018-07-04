@@ -4,6 +4,7 @@ import java.awt.image.RescaleOp;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -25,7 +26,7 @@ public class DBUtil {
 		String url =  "jdbc:mysql://localhost:3306/generalcoursewebsite?serverTimezone=GMT";
 
 		String userName = "root";
-		String userPWD = "root";
+		String userPWD = "";
 		Class.forName(driverName);
 
 		Connection connection = DriverManager.getConnection(url, userName, userPWD);
@@ -233,6 +234,23 @@ public static List<Map<String, Object>> excuteQueryFromColumn(String sql) throws
 	connection.close();
 	return list;
 	
+}
+
+public static ResultSet executeQuery(String sql) throws Exception {
+
+	Connection connection = getConnection();
+
+	Statement statement = connection.createStatement();
+
+	return statement.executeQuery(sql);
+}
+
+public static int executeUpdate(String sql) throws Exception {
+	Connection connection = getConnection();
+
+	Statement statement = connection.createStatement();
+
+	return statement.executeUpdate(sql);
 }
 
 }

@@ -50,19 +50,13 @@ public class LoginServlet extends HttpServlet {
 		if (state == true) {
 			List<Map<String, Object>> list;//获取当前管理员所拥有的角色类型和角色所拥有角色的权限类型和具体权限
 			List<Map<String, Object>> templateName;//获取权限类型
-			try {
-				templateName = PerssionDao.PerssionDao().selectInforFromTemplate();
-				list = PerssionDao.PerssionDao().selectRoleInfor(admin);
-				request.getSession().setAttribute("admin", admin);
-				request.getSession().setAttribute("password", passWord);
-				request.getSession().setAttribute("templateName", templateName);
-				request.getSession().setAttribute("list", list);
-				request.getRequestDispatcher("admin/backStageManage.jsp").forward(request, response);
-
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			templateName = PerssionDao.PerssionDao().selectInforFromTemplate();
+			list = PerssionDao.PerssionDao().selectRoleInfor(admin);
+			request.setAttribute("admin", admin);
+			request.setAttribute("password", passWord);
+			request.setAttribute("templateName", templateName);
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("admin/backStageManage.jsp").forward(request, response);
 		}
 		
 		else {

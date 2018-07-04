@@ -22,7 +22,7 @@ public class LoginDao {
 		String sql ="select userName,userID,roleID,passWord from user where userID = "+ userID;
 		List<Map<String, Object>> list = null;
 		try {
-	 list = DBUtil.excuteQueryFromLogin(sql);
+			list = DBUtil.excuteQueryFromLogin(sql);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
