@@ -26,7 +26,7 @@ public class DBUtil {
 		String url =  "jdbc:mysql://localhost:3306/generalcoursewebsite?serverTimezone=GMT";
 
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "root";
 		Class.forName(driverName);
 
 		Connection connection = DriverManager.getConnection(url, userName, userPWD);
@@ -40,6 +40,29 @@ public class DBUtil {
 		Statement statement = connection.createStatement();
 
 		return statement.execute(sql);
+	}
+	public static List<Map<String, Object>> excuteQueryFromBBS(String sql) throws Exception {
+		int i = 0;
+		java.sql.ResultSet rs = null;
+		Connection connection = getConnection();
+		Statement statement = connection.createStatement();
+		rs = statement.executeQuery(sql);
+		
+		List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+		while (rs.next()) {
+			Map<String, Object> map1 = new HashMap<String, Object>();
+			Integer id = rs.getInt("BBSid");
+			String BBSContent = rs.getString("BBSConten");
+			String time = rs.getString("BBSTime");
+
+			map1.put("id", id);
+			map1.put("content", BBSContent);
+			map1.put("date", time);
+			list.add(i, map1);
+			i++;
+		}
+		connection.close();
+		return list;
 	}
 
 	public static List<Map<String, Object>> excuteQueryFromLogin(String sql) throws Exception {

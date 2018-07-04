@@ -8,8 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>后台管理系统设置</title>
 <link rel="stylesheet" type="text/css" href="css/default.css" />
-<link rel="stylesheet" type="text/css" href="css/articleManage.css" />
-<link rel="stylesheet" type="text/css" href="css/authority.css" />
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	function doAction(index) {
@@ -105,7 +103,8 @@
 						<%for(int j = 0; j < authority.get(i).size();j++){ %>
 						<li style="text-align: left;list-style-type: none;font-size:12px;background-color:#fff;">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="<%=hash.get(i+""+j)%>" target="innerFrame"><img src="Images/smallright.jpg"><%=authority.get(i).get(j)%></a></li>
+							
+							<img src="Images/smallright.jpg"> <a href="<%=hash.get(i+""+j)%>" target="innerFrame"><%=authority.get(i).get(j)%></a></li>
 							<div class="line"></div>
 						
 						<%}%>
