@@ -224,8 +224,10 @@ public static List<Map<String, Object>> excuteQueryFromColumn(String sql) throws
 		Map<String, Object> map1 = new HashMap<String, Object>();
 	
 		String ColumnName = rs.getString("ColumnName");
+		int ColumnID = rs.getInt("ColumnID");
 	
 		map1.put("ColumnName", ColumnName);
+		map1.put("ColumnID", ColumnID);
 	
 		
 		list.add(i,map1);

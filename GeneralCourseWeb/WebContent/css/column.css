@@ -1,0 +1,22 @@
+.wholeContent{
+   
+    background-color: #fff;
+    border-radius: 20px;
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+.function{
+    margin-bottom: 20px;
+    overflow:hidden
+}
+
+.wholeContent h{
+    /* padding-top: 20px; */
+}

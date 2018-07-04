@@ -3,6 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import cqut.dao.ColumnDao;
 import cqut.dao.ContentManageDao;
 import cqut.dao.LoginDao;
 import cqut.dao.PerssionDao;
@@ -23,7 +24,7 @@ System.out.println("======================华丽的分割线====================
 System.out.println(list.get(0).get("roleName"));
 for (Map<String, Object> map : list) {
 	int i =0;
-List<Map<String, Object>> list1 =PerssionDao.PerssionDao().selectInforByoperation(Integer.parseInt((String)map.get("operationTypeID")));
+
 i++;
 
 

@@ -36,7 +36,7 @@ public class ContentManageDao {
 	
 	public List<Map<String, Object>> selectInforFromColumn(){
 		
-		String sql = "select ColumnName from `column`";
+		String sql = "select ColumnName,ColumnID from `column`";
 		List<Map<String, Object>> list = null;
 		try {
 			 list =DBUtil.excuteQueryFromColumn(sql);
