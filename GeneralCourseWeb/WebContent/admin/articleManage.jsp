@@ -10,7 +10,6 @@
 <script type="text/javascript" src="./layui/layui.js"></script>
 <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="./js/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="./js/main.js"></script>
 
 
 <title>Insert title here</title>
@@ -35,14 +34,82 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 			<div region="west" class="west" title="菜单">
 				<ul id="tree">
 				</ul>
+				<script type="text/javascript">
+				$(function() {
+					// 动态菜单数据
+					var treeData = [ {
+						text : "所有栏目",
+						state : "closed",
+						children : [ {
+							text : "首页",
+							state : "",
+							attributes : {
+								url : "http://www.baidu.com"
+							}
+						}, {
+							text : "课程介绍",
+							attributes : {
+								url : "http://www.baidu.com"
+							}
+						}, {
+							text : "教学团队",
+							attributes : {
+								url : "http://www.baidu.com"
+							}
+						}, {
+							text : "课程建设",
+							attributes : {
+								url : "http://www.baidu.com"
+							}
+						}, {
+							text : "课程资源",
+							attributes : {
+								url : "http://www.baidu.com"
+							}
+						}, {
+							text : "问题与答疑",
+							attributes : {
+								url : "http://www.baidu.com"
+							}
+						}, {
+							text : "课程研究",
+							attributes : {
+								url : "http://www.baidu.com"
+							}
+						} ]
+					} ]
+
+					// 实例化树形菜单
+					$("#tree").tree({
+						data : treeData,
+						lines : true,
+						onClick : function(node) {
+							if (node.attributes) {
+								Open(node.text, node.attributes.url);
+							}
+						}
+					});
+					// 在右边center区域打开菜单，新增tab
+					function Open(text, url) {
+						layui.use('table', function(){
+							 var table = layui.table;
+							 
+							 table.reload('article', {
+								 
+							 });
+							
+						});
+					}
+				});
+				</script>
 			</div>
 		</div>
 		<div class="articleManage_right">
 			<div class="articleManage_rightOption">
-				<span>文章标题：</span> <input type="text" placeholder="请输入文章标题">
-				<span>创建时间：从</span> <input type="date" placeholder="请输入时间">
-				<span>到</span> <input type="date" placeholder="请输入时间">
-				 <input	type="button" value="搜索">
+				<span>文章标题：</span> <input id="articleTitle" type="text" placeholder="请输入文章标题">
+				<span>创建时间：从</span> <input id="startTime" type="date" placeholder="请输入时间">
+				<span>到</span> <input id="endTime" type="date" placeholder="请输入时间">
+				<button id="search" class="layui-btn" data-type="reload">搜索</button>
 			</div>
 			<div class="articleManage_tab">
 			<table class="layui-table"  id="demo" lay-data="{width: 892, height:332}" lay-filter="demo">
@@ -161,6 +228,7 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 				      ,{field: 'city', title: '城市', width: 100}
 				      ,{field: 'experience', title: '积分', width: 80, sort: true}
 				    ]] 
+			  		,id:'article'
 				    ,skin: 'row' //表格风格
 				    ,even: true
 				    ,page: true //是否显示分页
@@ -203,10 +271,32 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 			    }
 			  };
 			  
-			  $('.demoTable .layui-btn').on('click', function(){
-			    var type = $(this).data('type');
-			    active[type] ? active[type].call(this) : '';
+			  $('.tree-node').on('click', function(){
+				  table.reload('article',{
+					  where: {//设定异步数据接口的额外参数
+						  
+					  }	,page: {
+				  		    curr: 1 //重新从第 1 页开始
+				  	  }
+					  //,height: 300
+					});
 			  });
+			  
+			  $('#search').on('click', function(){
+				  var articleTitle = $('#articleTitle').val();
+				  var startTime = $('#startTime').val();
+				  var endTime = $('#endTime').val();
+				  alert(startTime + "" + endTime);
+				  table.reload('article',{
+					  where: {
+						  
+					  }	,page: {
+				  		    curr: 1 //重新从第 1 页开始
+				  	  }
+					  //,height: 300
+					});
+			  });
+			  
 			});
 			</script>
 						

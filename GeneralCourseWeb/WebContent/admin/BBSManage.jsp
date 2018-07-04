@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="./layui/css/layui.css">
 <link rel="stylesheet" type="text/css" href="./css/BBSManage.css">
 <script type="text/javascript" src="./layui/layui.js"></script>
+<script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
 <title>留言管理</title>
 </head>
 <body>
@@ -47,7 +48,10 @@
         table.on('tool(BBS)', function(obj){
             var data = obj.data;
             if(obj.event === 'detail'){
-                layer.msg('ID：'+ data.id + ' 的查看操作');
+                layer.open({
+                	title: "留言ID:" +data.id,
+                	content: data.content
+                });
             } else if(obj.event === 'del'){
                 layer.confirm('真的删除行么', function(index){
                     console.log(data);
