@@ -47,7 +47,8 @@
             <tr class="active">
               
                 <th data-field="age" data-width="120px">choose</th>
-                <th data-field="bianji" data-width="120px">id</th>
+                <th data-field="bianji" data-width="120px">chooseID</th>
+                <th data-field="bianji" data-width="120px">ColumnID</th>
                 <th data-field="bianji" data-width="120px">栏目名称</th>
               <!--   <th data-field="bianji" data-width="120px">编辑</th> -->
             </tr>
@@ -64,6 +65,9 @@
                         <td>
                               <%=i+1%>
                             </td>
+                            <td>
+                                    <%=list1.get(i).get("ColumnID")%>
+                                </td>
                             <td>
                                     <%=list1.get(i).get("ColumnName")%>
                                 </td>
@@ -129,7 +133,7 @@
      <script>
        $(function () { $('#myModal').on('hide.bs.modal', function () {
        /*    alert('离开了...');}) */
-       });
+      });
     </script> 
    
                

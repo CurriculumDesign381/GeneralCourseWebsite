@@ -178,7 +178,7 @@ body{
 }
 
 .midContent .midMid .midMidLeft .subjectTrends .subjectTrendsLeft {
-	background-image:url(images/frame_bg_left.png);
+	background-image:url(../Images/images/frame_bg_left.png);
 	width:26px;
 	height:219px;
 	background-repeat:no-repeat;
@@ -186,7 +186,7 @@ body{
 }
 
 .midContent .midMid .midMidLeft .subjectTrends .subjectTrendsMid {
-	background-image:url(images/frame_bg_mid.png);
+	background-image:url(../Images/images/frame_bg_mid.png);
 	width:503px;
 	height:219px;
     background-repeat:repeat-x;
@@ -194,7 +194,7 @@ body{
 }
 
 .midContent .midMid .midMidLeft .subjectTrends .subjectTrendsRight {
-	background-image:url(images/frame_bg_right.png);
+	background-image:url(../Images/images/frame_bg_right.png);
 	width:26px;
 	height:219px;
 	background-repeat:no-repeat;
@@ -281,7 +281,7 @@ body{
 }
 
 .midContent .midMid .midMidRight .studySource .studySourceLeft {
-	background-image:url(images/frame_bg_left.png);
+	background-image:url(../Images/images/frame_bg_left.png);
 	width:26px;
 	height:219px;
 	background-repeat:no-repeat;
@@ -289,7 +289,7 @@ body{
 }
 
 .midContent .midMid .midMidRight .studySource .studySourceMid {
-	background-image:url(images/frame_bg_mid.png);
+	background-image:url(../Images/images/frame_bg_mid.png);
 	width:310px;
 	height:219px;
     background-repeat:repeat-x;
@@ -297,7 +297,7 @@ body{
 }
 
 .midContent .midMid .midMidRight .studySource .studySourceRight {
-	background-image:url(images/frame_bg_right.png);
+	background-image:url(../Images/images/frame_bg_right.png);
 	width:26px;
 	height:219px;
 	background-repeat:no-repeat;
@@ -366,7 +366,7 @@ body{
 	width:22px;
 	float:left;
 	background-repeat:no-repeat;
-	background-image:url(images/team_bg_left.png);
+	background-image:url(../Images/images/team_bg_left.png);
 }
 
 .midContent .midFoot .midFootMain .midFootContent .midFootContentLeft img{
@@ -379,7 +379,7 @@ body{
 	width:893px;
 	float:left;
 	background-repeat:repeat-x;
-	background-image:url(images/team_bg_mid.png);
+	background-image:url(../Images/images/team_bg_mid.png);
 }
 
 .midContent .midFoot .midFootMain .midFootContent .midFootContentRight{
@@ -387,7 +387,7 @@ body{
 	width:22px;
 	float:left;
 	background-repeat:no-repeat;
-	background-image:url(images/team_bg_right.png);
+	background-image:url(../Images/images/team_bg_right.png);
 }
 
 .midContent .midFoot .midFootMain .midFootContent .midFootContentRight img{

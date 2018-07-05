@@ -1,0 +1,28 @@
+.wholeContent{
+    width: 960px;
+    height: 500px;
+   
+    margin: auto; 
+    	font-size:12px;
+    font-family:"宋体";
+   
+}
+
+.leftNav{
+    width:198px;
+    height: 321px;
+    margin-right: 40px;
+    margin-top: 34px;
+  
+    float: left;
+
+}
+
+.rightContent{
+    margin-top: 49px;
+    width: 691px;
+    height: 450px;
+
+   float: right;
+
+}
