@@ -65,6 +65,62 @@ public class DBUtil {
 		return list;
 	}
 
+
+
+public static List<Map<String,Object>> excuteQueryofRole(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String roleID = rs.getString("roleId");
+		String roleName = rs.getString("roleName");
+
+		
+		map1.put("roleID", roleID);
+		map1.put("roleName", roleName);
+		
+		list.add(i,map1);
+	}
+	connection.close();
+	return list;
+	
+}
+
+public static List<Map<String,Object>> excuteQueryofAuthority(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String operationTypeID = rs.getString("operationTypeID");
+		String name = rs.getString("name");
+		String TemplateID = rs.getString("TemplateID");
+
+		
+		map1.put("operationTypeID", operationTypeID);
+		map1.put("name", name);
+		map1.put("TemplateID", TemplateID);
+		
+		list.add(i,map1);
+	}
+	connection.close();
+	return list;
+	
+}
+
 	public static List<Map<String, Object>> excuteQueryFromLogin(String sql) throws Exception {
 		int i = 0;
 		java.sql.ResultSet rs = null;

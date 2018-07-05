@@ -34,7 +34,15 @@ public class PermissionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PerssionDao dao = new PerssionDao();
-		/*List<Map<String, Object>> list = dao.selectRoleInfor(userID)*/
+		List<Map<String, Object>> templateName;//获取权限类型
+		templateName = PerssionDao.PerssionDao().selectInforFromTemplate();
+		List role = dao.getAllRole();//获取所有角色
+		List authority = dao.getAllAuthority();//获取所有权限
+		List<Map<String, Object>> list = dao.selectAllRoleInfor();//获取所有角色拥有的各自的权限
+		request.setAttribute("role", role);
+		request.setAttribute("authority", authority);
+		request.setAttribute("list", list);
+		request.setAttribute("templateName", templateName);
 		request.getServletContext().getRequestDispatcher("/admin/authority.jsp").forward(request, response);
 	}
 
