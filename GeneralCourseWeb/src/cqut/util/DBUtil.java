@@ -26,7 +26,7 @@ public class DBUtil {
 		String url =  "jdbc:mysql://localhost:3306/generalcoursewebsite?serverTimezone=GMT";
 
 		String userName = "root";
-		String userPWD = "";
+		String userPWD = "root";
 		Class.forName(driverName);
 
 		Connection connection = DriverManager.getConnection(url, userName, userPWD);
@@ -64,6 +64,62 @@ public class DBUtil {
 		connection.close();
 		return list;
 	}
+
+
+
+public static List<Map<String,Object>> excuteQueryofRole(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String roleID = rs.getString("roleId");
+		String roleName = rs.getString("roleName");
+
+		
+		map1.put("roleID", roleID);
+		map1.put("roleName", roleName);
+		
+		list.add(i,map1);
+	}
+	connection.close();
+	return list;
+	
+}
+
+public static List<Map<String,Object>> excuteQueryofAuthority(String sql) throws Exception{
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String operationTypeID = rs.getString("operationTypeID");
+		String name = rs.getString("name");
+		String TemplateID = rs.getString("TemplateID");
+
+		
+		map1.put("operationTypeID", operationTypeID);
+		map1.put("name", name);
+		map1.put("TemplateID", TemplateID);
+		
+		list.add(i,map1);
+	}
+	connection.close();
+	return list;
+	
+}
 
 	public static List<Map<String, Object>> excuteQueryFromLogin(String sql) throws Exception {
 		int i = 0;
@@ -133,22 +189,37 @@ public static List<Map<String, Object>> excuteQueryofcontent(String sql) throws 
 	while(rs.next()) {
 		Map<String, Object> map1 = new HashMap<String, Object>();
 	
-		String Title = rs.getString("Title");
-		String Anthor = rs.getString("Anthor");
+		String title = rs.getString("Title");
+		String author = rs.getString("Anthor");
 	
-		String ColumnTitle = rs.getString("ColumnName");
+		String columnName = rs.getString("ColumnName");
 		
-		String submitTime = rs.getTimestamp("CreateTime").toString().substring(0,
-				rs.getTimestamp("CreateTime").toString().length() - 2);
+		String createTime = rs.getTimestamp("CreateTime").toString();
 		String roleName = rs.getString("roleName");
+		String articleContent = rs.getString("articleContent");
+		Integer isTop = rs.getInt("isTop");
+		Integer isPass = rs.getInt("isPass");
 		
 		
 		
-		map1.put("Title", Title);
-		map1.put("Anthor", Anthor);
-		map1.put("ColumnTitle", ColumnTitle);
-		map1.put("submitTime", submitTime);
+		
+		map1.put("title", title);
+		map1.put("author", author);
+		map1.put("column", columnName);
+		map1.put("createTime", createTime);
 		map1.put("roleName", roleName);
+		map1.put("content", articleContent);
+		if(isTop==1) {
+			map1.put("isTop", "是");
+		} else {
+			map1.put("isTop", "否");
+		}
+		if(isPass==1) {
+			map1.put("isPass", "审核通过");
+		} else {
+			map1.put("isPass", "待审核");
+		}
+		
 		list.add(i,map1);
 		 
 	}

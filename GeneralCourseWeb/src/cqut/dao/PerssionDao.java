@@ -20,28 +20,93 @@ public class PerssionDao {
 		return perssionDao;
 	}
 	
-	public List<Role> getAllTeacher() {
-		List<Role> list = new ArrayList<Role>();
-
-		String sql = "select * from questionnaire";
+	public boolean changeRoleOfAuthority(int[] authority,int roleID)  {
+		String sql = "delete from perrole where roleID =" +roleID;
+		boolean judge = false ;
 		try {
-			Connection conn = DBUtil.getConnection();
-			PreparedStatement pst = conn.prepareStatement(sql);
-			ResultSet rst = pst.executeQuery();
-
-			while (rst.next()) {
-				Role role = new Role();
-				role.setRoleId(rst.getInt("roleId"));
-				role.setName(rst.getString("name"));
-
-				list.add(role);
+			DBUtil.execute(sql);
+			if(authority.length==0) {
+				return true;
 			}
-			rst.close();
-			pst.close();
+			for(int i = 0;i<authority.length;i++) {
+				 sql = "insert into perrole values("+roleID+","+authority[i]+")";
+				 DBUtil.execute(sql);
+				 judge =true;
+			}
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//INSERT INTO table_name (column1,column2,column3,...)	VALUES (value1,value2,value3,...);
+	
+	return judge;
+		
+	}
+	
+	/*获取所有权限*/
+	public List<Map<String,Object>> getAllAuthority() {
+		String sql = "select * from permission";
+		 List<Map<String, Object>> list = null;
+			try {
+				list = DBUtil.excuteQueryofAuthority(sql);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return list;
+	}
+	
+	/*获取所有角色*/
+	public List<Map<String,Object>> getAllRole() {
+		String sql = "select * from roleType";
+		 List<Map<String, Object>> list = null;
+			try {
+				list = DBUtil.excuteQueryofRole(sql);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return list;
+	}
+	
+	/*获取所有角色所拥有的各自的权限*/
+	public List<Map<String, Object>> selectAllRoleInfor(){
+		 String sql = "SELECT DISTINCT\r\n" + 
+		 		"	roletype.roleName,\r\n" + 
+		 		"	roletype.roleID,\r\n" + 
+		 		"   perrole.operationTypeID\r\n" + 
+		 		"FROM\r\n" + 
+		 		"	roletype \r\n" + 
+		 		" JOIN user  ON user.roleID = roletype.roleId\r\n" + 
+		 		"  \r\n" + 
+		 		" \r\n" + 
+		 		"  JOIN perrole ON roletype.roleId = perrole.roleID\r\n";
+		 List<Map<String, Object>> list = null;
+		try {
+			list = DBUtil.excuteQueryofpermission(sql);
+			 int i =0;
+			 for (Map<String, Object> map : list) {
+					List<Map<String, Object>> list1 =PerssionDao.PerssionDao().selectInforByoperation(Integer.parseInt((String)map.get("operationTypeID")));
+				    for (Map.Entry<String, Object> m : map.entrySet()) {
+				   
+				    }
+				    list.get(i).put("TemplateID", list1.get(0).get("TemplateID"));
+				    list.get(i).put("name", list1.get(0).get("name"));
+				    list.get(i).put("TemplateName", list1.get(0).get("TemplateName"));
+				    System.out.println(list1.get(0).get("TemplateID"));
+				    i++;
+				}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return list;
+		
 	}
 	
 	
