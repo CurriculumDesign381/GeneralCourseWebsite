@@ -1,15 +1,20 @@
+<%@page import="cqut.dao.ContentManageDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import ="cqut.dao.ContentManageDao,java.util.List, java.util.Map,java.util.Random"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页中部</title>
 <link type="text/css" href="../css/homePageCenter.css" rel="stylesheet" />
-<script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="../js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script src="../js/homePageCenter.js" type="text/javascript"></script>
 </head>
-
+<%List<Map<String,Object>> list =ContentManageDao.getContentManageDao().selectInforFromArcticle2();
+java.util.Random r=new java.util.Random(list.size()-1); 
+int number = new Random().nextInt(list.size()-1);
+System.out.print(list.get(number).get("arcticleContent"));
+%>
 <body>
     <div class="midContent">
        <div class="midHead">
@@ -25,7 +30,7 @@
                       <!--   <div class="contentIntroduceLeft">
                              <a href="#"><img src="../Images/images/课程负责人.png" width="169" height="164"/></a>
                         </div> -->
-                        <div class="contentIntroduceRight">《会计信息化》是会计学和财务管理专业的专业基础课。课程融合了会计学科和计算机学科的相关理论知识与技术手段，形成了贯穿会计信息化基本原理 → 会计软件应用 →会计软件开发技术→会计信息系统分析设计与开发四部分的内容体系。本课程要求学生理解会计信息化的基本原理、掌握管理工作。 《会计信息化》是会计学和财务管理专业的专业基础课。课程融合了会计学科和计算机学科的相关理论知识与技术手段，形成了贯穿会计信息化基本原理 → 会计软件应用 →会计软件开发技术→会计信息系统分析设计与开发四部分的内容体系。本课程要求学生理解会计信息化的基本原理、掌握</div>
+                        <div class="contentIntroduceRight"><%=list.get(number).get("arcticleContent") %></div>
                     
                     </div>
                 </div>
@@ -46,7 +51,7 @@
                        <!--  <div class="contentPrincipalLeft">
                             <a href="#"><img src="../Images/images/课程通知.png" width="131" height="164"/></a>
                         </div> -->
-                        <div class="contentPrincipalRight">《会计信息化》是会计学和财务管理专业的专业基础课。课程融合了会计学科和计算机学科的相关理论知识与技术手段，形成了贯穿会计信息化基本原理 → 会计软件应用 →会计软件开发技术→会计信息系统分析设计与开发四部分的内容体系。本课程要求学生理解会计信息化的基本原理、掌握管理工作。原理、掌握</div>
+                        <div class="contentPrincipalRight"><%=list.get(number).get("Anthor") %><%=list.get(number).get("AnthorInfor") %></div>
                     
                     </div>
                 </div>
@@ -140,13 +145,13 @@
        <div class="midFoot">
           <div class="midFootMain">
               <div class="midFootTitle">
-                    <a href="#"><img src="images/title_icon.png" width="5" height="19" /></a>
+                    <a href="#"><img src="../Images/images/title_icon.png" width="5" height="19" /></a>
                     <a href="#"><span class="allTitleChinese">教学资源</span></a>
                     <span class="allTitleEnglish">Resource</span>
               </div>
               <div class="midFootContent">
                   <div class="midFootContentLeft" id="left_scroll">
-                      <a href="javascript:void(0)"><img src="images/team_bt_left.png" height="67" width="12"/></a>
+                      <a href="javascript:void(0)"><img src="../Images/images/team_bt_left.png" height="67" width="12"/></a>
                   </div>
                   <div class="midFootContentMid">
                       <div class="midContentImg" id="carousel_inner">

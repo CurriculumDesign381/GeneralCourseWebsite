@@ -6,16 +6,10 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import com.sun.org.apache.regexp.internal.recompile;
 
 /*import com.mysql.jdbc.ResultSet;*/
 
@@ -26,7 +20,7 @@ public class DBUtil {
 		String url =  "jdbc:mysql://localhost:3306/generalcoursewebsite?serverTimezone=GMT";
 
 		String userName = "root";
-		String userPWD = "root";
+		String userPWD = "";
 		Class.forName(driverName);
 
 		Connection connection = DriverManager.getConnection(url, userName, userPWD);
@@ -64,7 +58,27 @@ public class DBUtil {
 		connection.close();
 		return list;
 	}
+	public static List<Map<String, Object>> excuteQueryFromUser(String sql) throws Exception {
+		int i = 0;
+		java.sql.ResultSet rs = null;
+		Connection connection = getConnection();
+		Statement statement = connection.createStatement();
+		rs = statement.executeQuery(sql);
+		
+		List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+		while (rs.next()) {
+			Map<String, Object> map1 = new HashMap<String, Object>();
+			String id = rs.getString("userID");
+			String name = rs.getString("userName");
 
+			map1.put("id", id);
+			map1.put("name", name);
+			list.add(i, map1);
+			i++;
+		}
+		connection.close();
+		return list;
+	}
 
 
 public static List<Map<String,Object>> excuteQueryofRole(String sql) throws Exception{
@@ -325,13 +339,68 @@ public static int executeUpdate(String sql) throws Exception {
 
 	return statement.executeUpdate(sql);
 }
+public static List<Map<String, Object>> executeFromArcticle(String sql) throws Exception {
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
 
-	public static int excuteQueryofBBSid(String sql) throws Exception {
-		ResultSet rs = DBUtil.executeQuery(sql);
-		while (rs.next()) {
-			return rs.getInt("Count(bbs.BBSid)");
-		}
-		return -1;
+
+	
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String arcticleContent = rs.getString("articleContent");
+		String Anthor = rs.getString("Anthor");
+		String AnthorInfor = rs.getString("AnthorInfor");
+	
+		map1.put("Anthor", Anthor);
+		map1.put("arcticleContent", arcticleContent);
+		map1.put("AnthorInfor",AnthorInfor);
+	
+		
+		list.add(i,map1);
+		 
 	}
+	connection.close();
+	return list;
+}
+public static int excuteQueryofBBSid(String sql) throws Exception {
+	ResultSet rs = DBUtil.executeQuery(sql);
+	while (rs.next()) {
+		return rs.getInt("Count(bbs.BBSid)");
+	}
+	return -1;
+}
+public static List<Map<String, Object>> executeFromRole(String sql) throws Exception {
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
 
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String roleID = rs.getString("roleID");
+		String roleName = rs.getString("roleName");
+
+	
+		map1.put("roleID", roleID);
+		map1.put("roleName", roleName);
+		
+	
+		
+		list.add(i,map1);
+		 
+	}
+	connection.close();
+	return list;
+}
 }

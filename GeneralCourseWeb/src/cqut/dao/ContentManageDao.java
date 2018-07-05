@@ -48,6 +48,19 @@ public class ContentManageDao {
 		
 	}
 
+	public List<Map<String, Object>> selectInforFromArcticle2(){
+		String sql = "select articleContent ,Anthor,AnthorInfor FROM articleinfor";
+		List<Map<String, Object>> list = null;
+		try {
+			list = DBUtil.executeFromArcticle(sql);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+
 	public boolean checkArticleByTitleAndAuthor(String articleTitle, String author) {
 		String sql = "UPDATE `articleinfor` SET `isPass`='1' WHERE (`Title`='" + articleTitle + "') AND (`Anthor`='" + author +"')";
 		try {
@@ -84,5 +97,6 @@ public class ContentManageDao {
 			return false;
 		}
 		return true;
+
 	}
 }

@@ -9,8 +9,9 @@ body{
 	background-image:url("../Images/loginImage.png"); 
 	background-size:cover;
 	background-repeat:no-repeat;
-	margin:100px; 
+ 	margin:100px auto;  
 	position:relative;
+	
 }
 
 .login{
