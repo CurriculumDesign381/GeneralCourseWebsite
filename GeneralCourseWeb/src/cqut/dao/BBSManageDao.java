@@ -1,5 +1,7 @@
 package cqut.dao;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +44,26 @@ public class BBSManageDao {
 			return false;
 		}
 		return true;
+	}
+
+
+	public boolean addMassageByContent(String msg) {
+		String sql1 = "SELECT\r\n" + 
+				"Count(bbs.BBSid)\r\n" + 
+				"FROM\r\n" + 
+				"bbs";
+		try {
+			int id = DBUtil.excuteQueryofBBSid(sql1) + 1;
+			Date date = new Date();
+			Timestamp timeStamep = new Timestamp(date.getTime());
+			String sql2 = "insert into bbs (BBSid,BBSConten,BBSTime) values(" + id + ",'" + msg + "','" + timeStamep + "')"; 
+			DBUtil.execute(sql2);
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

@@ -43,6 +43,9 @@ public class BBSInfoServlet extends HttpServlet {
                 case "delete":
                     deleteMessage(request,response);
                     break;
+                case "add":
+                	addMessage(request,response);
+                	break;
                 default:
                     queryList(request, response);
             }
@@ -51,6 +54,29 @@ public class BBSInfoServlet extends HttpServlet {
             queryList(request, response);
 
         }
+	}
+
+	/**
+	 * 发表留言
+	 * @param request
+	 * @param response
+	 */
+	private void addMessage(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String msg = request.getParameter("content");
+			BBSManageDao bbsManageDao = new BBSManageDao();
+			boolean state = bbsManageDao.addMassageByContent(msg);
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("state", state);
+			jsonObject.put("code", 0);
+			jsonObject.put("msg", "null");
+			System.out.println(jsonObject);
+			response.getWriter().print(jsonObject);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

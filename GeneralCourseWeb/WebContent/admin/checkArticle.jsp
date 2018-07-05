@@ -73,7 +73,9 @@
                              success: function(data){
 
                                  if(data.state==1){
-                                     obj.del();
+                                	 obj.update({
+											isPass : "通过审核"
+										});
                                      layer.close(index);
                                      layer.msg("审核成功", {icon: 6});
                                  }else{

@@ -34,14 +34,14 @@
 				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">教室团队</a></li>
 				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">学习资源</a></li>
 				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">课程建设</a></li>
-				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">教学互动</a></li>
+				<li class="nav_ul_li"><a href="interactiveTeaching.jsp" target="innerFrame">教学互动</a></li>
 				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">申请表</a></li>
 			</ul>
 			<div id="nav_last"></div>
 			
 		</div>
 	</div>
-    <iframe src="ArcticlePage.jsp" frameborder="0" width="100%" height="776" scrolling="no" class="innerFrame" name="innerFrame"></iframe>
+    <iframe src="ArcticlePage.jsp" frameborder="0" width="100%" height="788" scrolling="yes" class="innerFrame" name="innerFrame"></iframe>
 	<script src="../js/head.js" type="text/javascript"></script>
 	<div id="foot">
 		<ul id="site_info">

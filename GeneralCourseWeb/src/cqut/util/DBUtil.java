@@ -326,4 +326,12 @@ public static int executeUpdate(String sql) throws Exception {
 	return statement.executeUpdate(sql);
 }
 
+	public static int excuteQueryofBBSid(String sql) throws Exception {
+		ResultSet rs = DBUtil.executeQuery(sql);
+		while (rs.next()) {
+			return rs.getInt("Count(bbs.BBSid)");
+		}
+		return -1;
+	}
+
 }
