@@ -47,4 +47,16 @@ public class ContentManageDao {
 		return  list;
 		
 	}
+	public List<Map<String, Object>> selectInforFromArcticle2(){
+		String sql = "select articleContent ,Anthor,AnthorInfor FROM articleinfor";
+		List<Map<String, Object>> list = null;
+		try {
+			list = DBUtil.executeFromArcticle(sql);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+		
+	}
 }

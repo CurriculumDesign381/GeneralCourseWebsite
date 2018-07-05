@@ -34,4 +34,16 @@ public void deleteColumn(int condition) {
 		}
 		
 	}
+public void deleteRole(int condition) {
+	
+	String sql = "delete  from  roleType where roleID = "+condition;
+	System.out.println(sql);
+	try {
+		DBUtil.execute(sql);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
 }

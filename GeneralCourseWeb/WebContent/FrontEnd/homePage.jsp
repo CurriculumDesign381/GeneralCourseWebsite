@@ -30,8 +30,8 @@
 			<ul id="nav_ul">
 
 				<li class="nav_ul_li"><a href="ArcticlePage.jsp" target="innerFrame">首页</a></li>
-				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">课程介绍</a></li>
-				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">教室团队</a></li>
+				<li class="nav_ul_li"><a href="CourseIntroduce.jsp" target="innerFrame">课程介绍</a></li>
+				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">教学团队</a></li>
 				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">学习资源</a></li>
 				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">课程建设</a></li>
 				<li class="nav_ul_li"><a href="1.jsp" target="innerFrame">教学互动</a></li>

@@ -110,5 +110,28 @@ public class PerssionDao {
 		return list;
 		
 	}
-
+	
+	public List<Map<String, Object>> selectInforFromRoleType(){
+		String sql = "select roleID,roleName from roletype";
+		List<Map<String, Object>> list = null;
+		try {
+			list = DBUtil.executeFromRole(sql);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+		
+	}
+	public void insesrtRole(int roleID,String roleName) {
+		//insert into student_info(stuName,stuAge) values('zhanghua',13),('zhanghua',14),('zhanghua',15);
+		String sql = "insert into roletype (roleID,roleName) values ( "+roleID+",'"+roleName+"')";
+		System.out.println(sql);
+		try {
+			System.out.println(DBUtil.execute(sql));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

@@ -254,5 +254,58 @@ public static int executeUpdate(String sql) throws Exception {
 
 	return statement.executeUpdate(sql);
 }
+public static List<Map<String, Object>> executeFromArcticle(String sql) throws Exception {
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
 
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String arcticleContent = rs.getString("articleContent");
+		String Anthor = rs.getString("Anthor");
+		String AnthorInfor = rs.getString("AnthorInfor");
+	
+		map1.put("Anthor", Anthor);
+		map1.put("arcticleContent", arcticleContent);
+		map1.put("AnthorInfor",AnthorInfor);
+	
+		
+		list.add(i,map1);
+		 
+	}
+	connection.close();
+	return list;
+}
+public static List<Map<String, Object>> executeFromRole(String sql) throws Exception {
+	int i =0;
+	java.sql.ResultSet rs = null;
+	Connection connection = getConnection();
+	Statement statement = connection.createStatement();
+	rs = statement.executeQuery(sql);
+
+	List<Map<String, Object>> list = new LinkedList<Map<String, Object>>();
+	
+	while(rs.next()) {
+		Map<String, Object> map1 = new HashMap<String, Object>();
+	
+		String roleID = rs.getString("roleID");
+		String roleName = rs.getString("roleName");
+
+	
+		map1.put("roleID", roleID);
+		map1.put("roleName", roleName);
+		
+	
+		
+		list.add(i,map1);
+		 
+	}
+	connection.close();
+	return list;
+}
 }

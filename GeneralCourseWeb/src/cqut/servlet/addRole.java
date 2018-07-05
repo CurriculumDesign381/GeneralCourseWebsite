@@ -9,19 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cqut.dao.ColumnDao;	
+import com.sun.xml.internal.ws.api.model.wsdl.editable.EditableWSDLService;
+
+import cqut.dao.PerssionDao;
 
 /**
- * Servlet implementation class DeleteColumn
+ * Servlet implementation class addRole
  */
-@WebServlet("/InsertColumn")
-public class InsertColumn extends HttpServlet {
+@WebServlet("/addRole")
+public class addRole extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public InsertColumn() {
+    public addRole() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,27 +34,28 @@ public class InsertColumn extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter pw=response.getWriter();
-	String  ColumnID = request.getParameter("ColumnId");
-	String ColumnName = request.getParameter("ColumnName");
-	
-	if (!ColumnID.equals("")&!ColumnName.equals("")) {
+		String  roleID = request.getParameter("roleId");
+		String roleName = request.getParameter("roleName");
+		if(!roleID.equals("")&&!roleName.equals("")) {
 		
-
+		PerssionDao.PerssionDao().insesrtRole(Integer.parseInt(roleID), roleName);
 	
-	ColumnDao.getColumnDao().insesrtColumn(Integer.parseInt(ColumnID), ColumnName);
-/*	request.getRequestDispatcher("admin/column.jsp").forward(request, response);*/
-	response.sendRedirect("/GeneralCourseWeb/admin/column.jsp");
-	}
-	
-	else {
+		
 		pw.print("<html><head><meta charset='UTF-8'></head>");
-		pw.write("<script   language='javascript'>alert('ColumnID or ColumnName is empty')   </script>   ");
+		     pw.write("<script   language='javascript'>alert('success submit')   </script>   ");
+		   
+		    		  pw.write("<script   language='javascript'>  window.location.href='admin/roleManage.jsp'   </script>   ");
+		 	pw.print("</html>"); 
+	}
+		else {
+			pw.print("<html><head><meta charset='UTF-8'></head>");
+			pw.write("<script   language='javascript'>alert('RoleID or RoleName is empty')   </script>   ");
 
-		pw.write("<script   language='javascript'>  window.location.href='admin/column.jsp'   </script>   ");
-		pw.print("</html>");
+			pw.write("<script   language='javascript'>  window.location.href='admin/roleManage.jsp'   </script>   ");
+			pw.print("</html>");
+		}	
 	}
 	
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
