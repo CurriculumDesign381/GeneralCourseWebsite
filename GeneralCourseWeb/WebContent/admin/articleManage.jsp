@@ -109,10 +109,10 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 				<span>文章标题：</span> <input id="articleTitle" type="text" placeholder="请输入文章标题">
 				<span>创建时间：从</span> <input id="startTime" type="date" placeholder="请输入时间">
 				<span>到</span> <input id="endTime" type="date" placeholder="请输入时间">
-				<button id="search" class="layui-btn" data-type="reload">搜索</button>
+				<button id="search" class="layui-btn" data-type="reload" style="line-height: normal;">搜索</button>
 			</div>
 			<div class="articleManage_tab">
-			<table class="layui-table"  id="demo" lay-data="{width: 892, height:332}" lay-filter="demo">
+			<table class="layui-table"  id="articleTab"  lay-filter="articleTab">
 
 			</table>
 			<script type="text/html" id="barDemo">
@@ -124,180 +124,139 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 			layui.use('table', function(){
 			  var table = layui.table;
 			  
-			  // 展示已知数据
 			  table.render({
-				    elem: '#demo'
-				    ,data: [{
-				      "id": "10001"
-				      ,"username": "杜甫"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "116"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "108"
-				      ,"joinTime": "2016-10-14"
-				    }, {
-				      "id": "10002"
-				      ,"username": "李白"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "12"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "106"
-				      ,"joinTime": "2016-10-14"
-				      ,"LAY_CHECKED": true
-				    }, {
-				      "id": "10003"
-				      ,"username": "王勃"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "65"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "106"
-				      ,"joinTime": "2016-10-14"
-				    }, {
-				      "id": "10004"
-				      ,"username": "贤心"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "666"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "106"
-				      ,"joinTime": "2016-10-14"
-				    }, {
-				      "id": "10005"
-				      ,"username": "贤心"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "86"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "106"
-				      ,"joinTime": "2016-10-14"
-				    }, {
-				      "id": "10006"
-				      ,"username": "贤心"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "12"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "106"
-				      ,"joinTime": "2016-10-14"
-				    }, {
-				      "id": "10007"
-				      ,"username": "贤心"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "16"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "106"
-				      ,"joinTime": "2016-10-14"
-				    }, {
-				      "id": "10008"
-				      ,"username": "贤心"
-				      ,"email": "xianxin@layui.com"
-				      ,"sex": "男"
-				      ,"city": "浙江杭州"
-				      ,"sign": "人生恰似一场修行"
-				      ,"experience": "106"
-				      ,"ip": "192.168.0.8"
-				      ,"logins": "106"
-				      ,"joinTime": "2016-10-14"
-				    }]
+				  	url: 'ArticleInfoServlet'
+				    ,elem: '#articleTab'
 				    ,height: 272
 				    ,cols: [[ //标题栏
 				      {checkbox: true, LAY_CHECKED: true} //默认全选
-				      ,{field: 'id', title: 'ID', width: 80, sort: true}
-				      ,{field: 'username', title: '用户名', width: 120}
-				      ,{field: 'email', title: '邮箱', width: 150}
-				      ,{field: 'sign', title: '签名', width: 150}
-				      ,{field: 'sex', title: '性别', width: 80}
-				      ,{field: 'city', title: '城市', width: 100}
-				      ,{field: 'experience', title: '积分', width: 80, sort: true}
+				      ,{field: 'title', title: '文章标题', align:'center'}
+				      ,{field: 'author', title: '作者', width:100, align:'center'}
+				      ,{field: 'column', title: '栏目名称',  align:'center'}
+				      ,{field: 'createTime', title: '创建日期',  align:'center'}
+				      ,{field: 'isTop', title: '是否置顶',width:100,	  align:'center'}
+				      ,{field:'right', title: '操作',toolbar:"#barDemo",align:'center'}
 				    ]] 
 			  		,id:'article'
 				    ,skin: 'row' //表格风格
 				    ,even: true
 				    ,page: true //是否显示分页
 				    ,limits: [5, 7, 10]
-				    ,limit: 5 //每页默认显示的数量
+				    ,limit: 7 //每页默认显示的数量
+				    ,height: 330
 				  });
+			  
 			  //监听表格复选框选择
-			  table.on('checkbox(demo)', function(obj){
+			  table.on('checkbox(articleTab)', function(obj){
 			    console.log(obj)
 			  });
 			  //监听工具条
-			  table.on('tool(demo)', function(obj){
+			  table.on('tool(articleTab)', function(obj){
 			    var data = obj.data;
 			    if(obj.event === 'detail'){
-			      layer.msg('ID：'+ data.id + ' 的查看操作');
+		                layer.open({
+		                	title: data.title,
+		                	content: data.content
+		                });
 			    } else if(obj.event === 'del'){
 			      layer.confirm('真的删除行么', function(index){
-			        obj.del();
-			        layer.close(index);
+			    	  console.log(data);
+	                    $.ajax({
+	                        url: "ArticleInfoServlet",
+	                        type: "POST",
+	                        data:{"articleTitle":data.title,"author":author,"memthodname":"delete"},
+	                        dataType: "json",
+	                        success: function(data){
+
+	                            if(data.state==1){
+	                                obj.del();
+	                                layer.close(index);
+	                                layer.msg("删除成功", {icon: 6});
+	                            }else{
+	                                layer.msg("删除失败", {icon: 5});
+	                            }
+	                        }
+
+	                    });
 			      });
 			    } else if(obj.event === 'edit'){
-			      layer.alert('编辑行：<br>'+ JSON.stringify(data))
-			    }
-			  });
-			  
-			  var $ = layui.$, active = {
-			    getCheckData: function(){ //获取选中数据
-			      var checkStatus = table.checkStatus('idTest')
-			      ,data = checkStatus.data;
-			      layer.alert(JSON.stringify(data));
-			    }
-			    ,getCheckLength: function(){ //获取选中数目
-			      var checkStatus = table.checkStatus('idTest')
-			      ,data = checkStatus.data;
-			      layer.msg('选中了：'+ data.length + ' 个');
-			    }
-			    ,isAll: function(){ //验证是否全选
-			      var checkStatus = table.checkStatus('idTest');
-			      layer.msg(checkStatus.isAll ? '全选': '未全选')
-			    }
-			  };
-			  
-			  $('.tree-node').on('click', function(){
-				  table.reload('article',{
-					  where: {//设定异步数据接口的额外参数
-						  
-					  }	,page: {
-				  		    curr: 1 //重新从第 1 页开始
-				  	  }
-					  //,height: 300
+			    	layer.prompt({
+			            formType: 2
+			            ,title: '修改文章标题为 ['+ data.title +'] 的内容'
+			            ,value: data.content
+			        }, function(value, index){
+			            EditArticle(data,value,index,obj);
+			        });
+			   	}
+			    
+			    
+			
+				//  编辑的方法
+						function EditArticle(data, value, index, obj) {
+							$.ajax({
+								url : "ArticleInfoServlet",
+								type : "POST",
+								data : {
+									"Title" : data.title,
+									"memthodname" : "edit",
+									"author" : data.author,
+									"content" : value
+								},
+								dataType : "json",
+								success : function(data) {
+
+									if (data.state == 1) {
+										//关闭弹框
+										layer.close(index);
+										//同步更新表格和缓存对应的值
+										obj.update({
+											content : value
+										});
+										layer.msg("修改成功", {
+											icon : 6
+										});
+									} else {
+										layer.msg("修改失败", {
+											icon : 5
+										});
+									}
+								}
+
+							});
+						}
 					});
-			  });
-			  
-			  $('#search').on('click', function(){
-				  var articleTitle = $('#articleTitle').val();
-				  var startTime = $('#startTime').val();
-				  var endTime = $('#endTime').val();
-				  alert(startTime + "" + endTime);
-				  table.reload('article',{
-					  where: {
-						  
-					  }	,page: {
-				  		    curr: 1 //重新从第 1 页开始
-				  	  }
-					  //,height: 300
+
+					$('.tree-node').on('click', function() {
+						table.reload('article', {
+							where : {//设定异步数据接口的额外参数
+
+							},
+							page : {
+								curr : 1
+							//重新从第 1 页开始
+							}
+						//,height: 300
+						});
 					});
-			  });
-			  
-			});
+
+					$('#search').on('click', function() {
+						var articleTitle = $('#articleTitle').val();
+						var startTime = $('#startTime').val();
+						var endTime = $('#endTime').val();
+						alert(startTime + "" + endTime);
+						table.reload('article', {
+							where : {
+
+							},
+							page : {
+								curr : 1
+							//重新从第 1 页开始
+							}
+						//,height: 300
+						});
+					});
+
+				});
 			</script>
 						
 			</div>
