@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import cqut.entity.Role;
+/*import cqut.entity.Role;*/
 import cqut.util.DBUtil;
 
 public class PerssionDao {
